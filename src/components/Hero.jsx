@@ -1,17 +1,15 @@
 function Hero() {
   return (
-    <div className="flex items-center justify-center gap-24 mt-32 mx-56">
+    <div className="flex items-center justify-center gap-24 mt-32 mx-52">
       <div className="flex flex-col gap-6">
-        <h1 className="text-[42px] tracking-wide ">
-          Hey, I&apos;m
-          <span className="text-accent font-medium">MohanRaji</span> 👋
+        <h1 className="text-[40px] tracking-wide whitespace-nowrap">
+          Welcome to
+          <span className="text-accent font-medium"> AnimeBlogz</span>👋
         </h1>
         <p className="text-lg leading-loose">
-          I&apos;m a passionate
-          <span className="font-bold">web developer</span> . I love to build web
-          applications and watching anime. This is my site
-          <span className="font-bold"> Anime Blogz</span> where I write the most
-          outrageous takes about anime and manga.
+          Here we talk about
+          <b> Unpopular Opinions</b> about <b>Anime</b> ,<b> Manga</b> and even
+          Gacha Games !. Check out the posts and let us know what you think!
         </p>
         <h4 className="text-lg font-medium">Let&apos;s Connect</h4>
         <div className="social-buttons w-3/5 ">

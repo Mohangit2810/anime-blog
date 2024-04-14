@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,11 +15,50 @@
   font-weight: bold;
 }
 
+::webkit-scrollbar {
+  width: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f7b5e4 !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff8ac7;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6ab3;
+  border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+  .cursor {
+    display: none;
+  }
+}
+
 /* Add more @font-face rules for other font weights if needed */
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: rgb(255, 219, 246);
+  background-color: #ffdbf6;
   color: #282424;
   width: 100%;
 }
@@ -226,19 +265,27 @@ body {
   width: 10px;
 }
 
-/* .blog-card-image {
-  position: relative;
+/* Youtube Icon  */
+
+.yt-icon {
+  -webkit-animation: shake 2s ease-in-out infinite;
+  animation: shake 2s ease-in-out infinite;
 }
 
-.blog-card-image::after {
-  content: "LifeStyle";
-  display: block;
-  width: 100px;
-  height: 18px;
-  background: #0077b5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 100%;
-  z-index: 1;
-} */
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

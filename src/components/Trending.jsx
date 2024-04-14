@@ -35,59 +35,69 @@ function Trending() {
       </h2>
       <div className="flex items-center justify-around mx-64 py-4 px-12 bg-white rounded-full">
         <ul className="flex items-center justify-center gap-12">
-          <li className="trending-icon relative flex flex-col items-center justify-center gap-3">
-            <img
-              className="rounded-full w-16 h-16 object-cover"
-              src="/slice.webp"
-              alt="SOL"
-            />
-            <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-              3
-            </span>
+          <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <img
+                className="rounded-full w-16 h-16 object-cover"
+                src="/slice.webp"
+                alt="SOL"
+              />
+              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                3
+              </span>
+            </div>
             <p className="font-semibold text-center">Slice of Life</p>
           </li>
-          <li className="trending-icon relative flex flex-col items-center justify-center gap-3">
-            <img
-              className="rounded-full w-16 h-16 object-cover"
-              src="/shounen.gif"
-              alt="SOL"
-            />
-            <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-              3
-            </span>
+          <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <img
+                className="rounded-full w-16 h-16 object-cover"
+                src="/shounen.gif"
+                alt="SOL"
+              />
+              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                3
+              </span>
+            </div>
             <p className="font-semibold text-center">Shounen</p>
           </li>
-          <li className="trending-icon relative flex flex-col items-center justify-center gap-3">
-            <img
-              className="rounded-full w-16 h-16 object-cover"
-              src="/romcom.gif"
-              alt="SOL"
-            />
-            <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-              3
-            </span>
+          <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <img
+                className="rounded-full w-16 h-16 object-cover"
+                src="/romcom.gif"
+                alt="SOL"
+              />
+              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                3
+              </span>
+            </div>
             <p className="font-semibold text-center">Rom Com</p>
           </li>
-          <li className="trending-icon relative flex flex-col items-center justify-center gap-3">
-            <img
-              className="rounded-full w-16 h-16 object-cover"
-              src="/community.gif"
-              alt="SOL"
-            />
-            <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-              3
-            </span>
+          <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <img
+                className="rounded-full w-16 h-16 object-cover"
+                src="/community.gif"
+                alt="SOL"
+              />
+              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                3
+              </span>
+            </div>
             <p className="font-semibold text-center">Community</p>
           </li>
-          <li className="trending-icon relative flex flex-col items-center justify-center gap-3">
-            <img
-              className="rounded-full w-16 h-16 object-cover"
-              src="/gacha.gif"
-              alt="SOL"
-            />
-            <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-              3
-            </span>
+          <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <div className="relative">
+              <img
+                className="rounded-full w-16 h-16 object-cover"
+                src="/gacha.gif"
+                alt="SOL"
+              />
+              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                3
+              </span>
+            </div>
             <p className="font-semibold text-center">Gacha</p>
           </li>
         </ul>
