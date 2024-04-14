@@ -21,14 +21,17 @@ function Header() {
     >
       <img className="w-40" src="/logo-zento-personal-1.png" alt="logo" />
       <ul className="flex items-center gap-8">
-        <li>
+        <li className="font-medium">
           <NavLink to="/"> Home</NavLink>
         </li>
-        <li>
-          <NavLink to="about"> About</NavLink>
+        <li className="font-medium">
+          <NavLink to="/about"> About</NavLink>
         </li>
-        <li>
-          <NavLink to="/"> Categories</NavLink>
+        <li className="font-medium">
+          <NavLink to="/categories"> Categories</NavLink>
+        </li>
+        <li className="font-medium">
+          <NavLink to="/contact"> Contact</NavLink>
         </li>
       </ul>
       {/* <div className="input-wrapper">

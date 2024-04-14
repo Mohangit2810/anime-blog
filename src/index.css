@@ -69,6 +69,11 @@ body {
   padding: 0;
 }
 
+.nav,
+.active {
+  color: #ff8ac7;
+}
+
 /* Search */
 
 .input-wrapper {
@@ -288,4 +293,71 @@ body {
   100% {
     transform: rotate(0deg);
   }
+}
+
+/* Contact */
+
+/* Buttons */
+
+.custom-btn {
+  width: 140px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn-15,
+.form-btn {
+  background: #ff6481;
+  border: none;
+  z-index: 1;
+}
+
+.form-btn {
+  background: #ff6481 !important;
+}
+
+.btn-15:after,
+.form-btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #cc5067;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-btn:after {
+  background-color: #cc5067 !important;
+}
+
+.btn-15:hover,
+.form-btn:hover {
+  color: #fff;
+}
+.btn-15:hover:after,
+.form-btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active,
+.form-btn:active {
+  top: 2px;
 }
