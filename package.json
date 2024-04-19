@@ -12,6 +12,7 @@
   "dependencies": {
     "cors-anywhere": "^0.4.4",
     "express": "^4.19.2",
+    "firebase": "^10.11.0",
     "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

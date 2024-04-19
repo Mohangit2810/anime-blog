@@ -3,16 +3,36 @@ import Header from "../components/Header";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 import blogs from "../blogs/blogs";
+import categories from "../blogs/categories";
 import StarRating from "../components/StarRating";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import AddComment from "../components/AddComment";
+import { getComments } from "../comment-section/commentSecion";
 
 function Blog() {
   let { blogId } = useParams();
   const [htmlContent, setHtmlContent] = useState("");
+  const [comments, setComments] = useState([]);
   const [activeHeadingId, setActiveHeadingId] = useState(null);
   const blogData = blogs.find((blog) => blog.id === parseInt(blogId));
+  const categoryData = categories.find(
+    (category) => category.id === blogData.categoryId
+  );
   const mainHeadings = blogData.headings;
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const commentsData = await getComments(blogId);
+        setComments(commentsData);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+
+    fetchComments();
+  }, [blogId]);
 
   useEffect(() => {
     const fetchBlogContent = async () => {
@@ -80,6 +100,12 @@ function Blog() {
       const targetPosition = targetHeading.offsetTop - offset;
       window.scrollTo({ top: targetPosition, behavior: "smooth" });
     }
+  }
+
+  function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard");
   }
 
   return (
@@ -228,13 +254,17 @@ function Blog() {
               </svg>
               Published : {blogData.published}
             </p>
-            <img className="rounded my-8" src="/big-blog.jpg" alt="art" />
+            <img
+              className="rounded my-8 max-h-96 mx-auto"
+              src={blogData.titleImage}
+              alt="art"
+            />
 
             <div id="blog-content" className="mt-16"></div>
 
             <div className="relative mt-12 border-y border-accent p-12">
-              <p className="text-lg tracking-wide leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <p className="text-lg text-center tracking-wide leading-relaxed">
+                {blogData.quote}
                 <svg
                   className="w-12 h-12 fill-accent absolute bottom-2 right-0"
                   xmlns="http://www.w3.org/2000/svg"
@@ -269,15 +299,17 @@ function Blog() {
               </p>
             </div>
             <p className=" py-16 border-b border-[#ff8ac7c0] text-center font-semibold">
-              Categorized in :
-              <span className="font-bold text-accent"> Slice Of Life ,</span>
-              <span className="font-bold text-accent">Rom-Com ,</span>
-              <span className="font-bold text-accent">Community</span>
+              Tags :
+              {blogData.tags.map((tag, index) => (
+                <span key={index} className="ml-2 font-bold text-accent">
+                  {tag} {index !== blogData.tags.length - 1 ? "," : " "}
+                </span>
+              ))}
             </p>
             <div className=" my-12 w-full gap-4 flex items-center justify-center">
               <p className="font-semibold">Share Article :</p>
               <ul className="flex gap-6 ml-2">
-                <li className="twitter-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/2">
+                <li className="twitter-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/4">
                   <span className="twitter-share transition-all duration-500 ease-in-out hidden text-xs absolute -top-10 -translate-x-[35%] bg-white rounded w-max shadow p-2">
                     Share on Twitter
                   </span>
@@ -293,7 +325,7 @@ function Blog() {
                     <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
                   </svg>
                 </li>
-                <li className="insta-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/2">
+                <li className="insta-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/4">
                   <span className="insta-share transition-all duration-500 ease-in-out hidden text-xs absolute -top-10 -translate-x-[35%] bg-white rounded w-max shadow p-2">
                     Share on Instagram
                   </span>
@@ -309,7 +341,7 @@ function Blog() {
                     <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
                   </svg>
                 </li>
-                <li className="mail-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/2">
+                <li className="mail-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/4">
                   <span className="mail-share transition-all duration-500 ease-in-out hidden text-xs absolute -top-10 -translate-x-[35%] bg-white rounded w-max shadow p-2">
                     Share on Mail
                   </span>
@@ -325,7 +357,7 @@ function Blog() {
                     <path d="M 4 4 C 3.334 4 2.7467656 4.3270781 2.3847656 4.8300781 C 2.1407656 5.1680781 2.2485625 5.6471875 2.6015625 5.8671875 L 11.382812 11.339844 C 11.760812 11.575844 12.239187 11.575844 12.617188 11.339844 L 21.361328 5.8203125 C 21.728328 5.5883125 21.819828 5.0840937 21.548828 4.7460938 C 21.183828 4.2920937 20.627 4 20 4 L 4 4 z M 21.515625 8.0859375 C 21.432 8.0868594 21.347078 8.1099062 21.267578 8.1601562 L 12.617188 13.615234 C 12.239187 13.850234 11.760812 13.849281 11.382812 13.613281 L 2.7304688 8.2226562 C 2.4124687 8.0246562 2 8.2539062 2 8.6289062 L 2 18 C 2 19.105 2.895 20 4 20 L 20 20 C 21.105 20 22 19.105 22 18 L 22 8.5644531 C 22 8.2824531 21.7665 8.0831719 21.515625 8.0859375 z"></path>
                   </svg>
                 </li>
-                <li className="whatsapp-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/2">
+                <li className="whatsapp-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/4">
                   <span className="whatsapp-share transition-all duration-500 ease-in-out hidden text-xs absolute -top-10 -translate-x-[35%] bg-white rounded w-max shadow p-2">
                     Share on Whatsapp
                   </span>
@@ -364,67 +396,82 @@ function Blog() {
                 </li>
               </ul>
             </div>
-            <div className="form-group relative">
+            <div className="form-group relative rounded hover:outline-none hover:ring-1 hover:ring-accent hover:border-accent">
               <input
                 className="p-5 pr-36 w-full border border-[#feeaec] rounded focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
                 type="text"
                 name="link"
-                value={
-                  "https://themes.estudiopatagon.com/wordpress/zento-personal/the-spectacle-before-us-was-indeed-sublime/"
-                }
+                value={window.location.href}
                 readOnly
               />
               <button
                 className="copy-link absolute right-2 top-2 bottom-2 w-max rounded bg-accent text-white p-3"
                 type="submit"
+                onClick={() => copyLink()}
               >
                 Copy Link
               </button>
             </div>
           </article>
           <div className="my-24 flex items-center justify-between">
-            <div className="move-article relative overflow-hidden py-8 pl-16 pr-12 rounded-md bg-[#4EC1D8] text-white cursor-pointer">
-              <p className="text-sm mb-2 text-start">Previous Article</p>
-              <p className="text-left">Why you should Watch K-On?</p>
-              <span className="arrow-icon-left py-2 pl-[50px] pr-2 bg-white rounded-full absolute -left-12 top-[30%] transition-all duration-300 ease-in-out">
-                <svg
-                  className="w-8 h-8 fill-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="100"
-                  height="100"
-                  viewBox="0 0 50 50"
-                >
-                  <path d="M 19.8125 13.09375 C 19.59375 13.132813 19.398438 13.242188 19.25 13.40625 L 8.34375 24.28125 L 7.65625 25 L 8.34375 25.71875 L 19.25 36.59375 C 19.492188 36.890625 19.878906 37.027344 20.253906 36.941406 C 20.625 36.855469 20.917969 36.5625 21.003906 36.191406 C 21.089844 35.816406 20.953125 35.429688 20.65625 35.1875 L 11.46875 26 L 41 26 C 41.359375 26.003906 41.695313 25.816406 41.878906 25.503906 C 42.058594 25.191406 42.058594 24.808594 41.878906 24.496094 C 41.695313 24.183594 41.359375 23.996094 41 24 L 11.46875 24 L 20.65625 14.8125 C 20.980469 14.511719 21.066406 14.035156 20.871094 13.640625 C 20.679688 13.242188 20.246094 13.023438 19.8125 13.09375 Z"></path>
-                </svg>
-              </span>
-            </div>
-            <div className="move-article relative overflow-hidden py-8 pr-16 pl-12 rounded-md bg-[#F976D0] text-white cursor-pointer">
-              <p className="text-sm mb-2 text-end">Next Article</p>
-              <p className="text-right">Why you should Watch K-On?</p>
-              <span className="arrow-icon-right py-2 pr-[50px] pl-2 bg-white rounded-full absolute -right-12 top-[30%] transition-all duration-300 ease-in-out">
-                <svg
-                  className="w-8 h-8 fill-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="100"
-                  height="100"
-                  viewBox="0 0 50 50"
-                >
-                  <path d="M 29.84375 13.09375 C 29.46875 13.160156 29.167969 13.433594 29.0625 13.796875 C 28.957031 14.164063 29.066406 14.554688 29.34375 14.8125 L 38.53125 24 L 9 24 C 8.96875 24 8.9375 24 8.90625 24 C 8.355469 24.027344 7.925781 24.496094 7.953125 25.046875 C 7.980469 25.597656 8.449219 26.027344 9 26 L 38.53125 26 L 29.34375 35.1875 C 29.046875 35.429688 28.910156 35.816406 28.996094 36.191406 C 29.082031 36.5625 29.375 36.855469 29.746094 36.941406 C 30.121094 37.027344 30.507813 36.890625 30.75 36.59375 L 41.65625 25.71875 L 42.34375 25 L 41.65625 24.28125 L 30.75 13.40625 C 30.542969 13.183594 30.242188 13.070313 29.9375 13.09375 C 29.90625 13.09375 29.875 13.09375 29.84375 13.09375 Z"></path>
-                </svg>
-              </span>
-            </div>
+            <Link to={`/blog/${blogData.id - 1}`}>
+              <div
+                className={
+                  blogData.id === 1
+                    ? "hidden"
+                    : "move-article relative overflow-hidden py-8 pl-16 pr-12 rounded-md bg-[#4EC1D8] text-white cursor-pointer"
+                }
+              >
+                <p className="text-sm mb-2 text-start">Previous Article</p>
+                <p className="text-left">Why you should Watch K-On?</p>
+                <span className="arrow-icon-left py-2 pl-[50px] pr-2 bg-white rounded-full absolute -left-12 top-[30%] transition-all duration-300 ease-in-out">
+                  <svg
+                    className="w-8 h-8 fill-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 50 50"
+                  >
+                    <path d="M 19.8125 13.09375 C 19.59375 13.132813 19.398438 13.242188 19.25 13.40625 L 8.34375 24.28125 L 7.65625 25 L 8.34375 25.71875 L 19.25 36.59375 C 19.492188 36.890625 19.878906 37.027344 20.253906 36.941406 C 20.625 36.855469 20.917969 36.5625 21.003906 36.191406 C 21.089844 35.816406 20.953125 35.429688 20.65625 35.1875 L 11.46875 26 L 41 26 C 41.359375 26.003906 41.695313 25.816406 41.878906 25.503906 C 42.058594 25.191406 42.058594 24.808594 41.878906 24.496094 C 41.695313 24.183594 41.359375 23.996094 41 24 L 11.46875 24 L 20.65625 14.8125 C 20.980469 14.511719 21.066406 14.035156 20.871094 13.640625 C 20.679688 13.242188 20.246094 13.023438 19.8125 13.09375 Z"></path>
+                  </svg>
+                </span>
+              </div>
+            </Link>
+            <Link to={`/blog/${blogData.id + 1}`}>
+              <div
+                className={
+                  blogData.id === blogs.length
+                    ? "hidden"
+                    : "move-article justify-self-end relative overflow-hidden py-8 pr-16 pl-12 rounded-md bg-[#F976D0] text-white cursor-pointer"
+                }
+              >
+                <p className="text-sm mb-2 text-end">Next Article</p>
+                <p className="text-right">Why you should Watch K-On?</p>
+                <span className="arrow-icon-right py-2 pr-[50px] pl-2 bg-white rounded-full absolute -right-12 top-[30%] transition-all duration-300 ease-in-out">
+                  <svg
+                    className="w-8 h-8 fill-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 50 50"
+                  >
+                    <path d="M 29.84375 13.09375 C 29.46875 13.160156 29.167969 13.433594 29.0625 13.796875 C 28.957031 14.164063 29.066406 14.554688 29.34375 14.8125 L 38.53125 24 L 9 24 C 8.96875 24 8.9375 24 8.90625 24 C 8.355469 24.027344 7.925781 24.496094 7.953125 25.046875 C 7.980469 25.597656 8.449219 26.027344 9 26 L 38.53125 26 L 29.34375 35.1875 C 29.046875 35.429688 28.910156 35.816406 28.996094 36.191406 C 29.082031 36.5625 29.375 36.855469 29.746094 36.941406 C 30.121094 37.027344 30.507813 36.890625 30.75 36.59375 L 41.65625 25.71875 L 42.34375 25 L 41.65625 24.28125 L 30.75 13.40625 C 30.542969 13.183594 30.242188 13.070313 29.9375 13.09375 C 29.90625 13.09375 29.875 13.09375 29.84375 13.09375 Z"></path>
+                  </svg>
+                </span>
+              </div>
+            </Link>
           </div>
           <div className="p-12 bg-white rounded">
             <div className="flex items-center justify-between">
-              <div className="article-cat cursor-pointer flex items-center justify-center gap-8">
+              <div className="article-cat flex items-center justify-center gap-8">
                 <div className="gif-container relative before:bg-[#f266ee] ">
                   <img
                     className="category-gif rounded-full w-16 h-16 object-cover"
-                    src="/slice.webp"
+                    src={categoryData.image}
                     alt="SOL"
                   />
                 </div>
@@ -432,32 +479,30 @@ function Blog() {
                   <p className="font-light">
                     More in this <span className="font-semibold">Category</span>{" "}
                   </p>
-                  <b className="text-3xl">Slice of Life</b>
+                  <b className="text-3xl">{blogData.mainCategory}</b>
                 </div>
               </div>
-              <button className="bg-accent text-white rounded px-6 py-2">
-                View All Articles
-              </button>
+              <Link to={`/category/${blogData.categoryId}`}>
+                <button className="bg-accent text-white rounded px-6 py-2">
+                  View All Articles
+                </button>
+              </Link>
             </div>
             <ul className="mt-12">
-              <li className="cat-list ml-4 font-medium cursor-pointer mt-2 pb-4 pl-4 border-b border-[#FEF4F5] hover:underline">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-              </li>
-              <li className="cat-list ml-4 font-medium cursor-pointer mt-2 pb-4 pl-4 border-b border-[#FEF4F5] hover:underline">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-              </li>
-              <li className="cat-list ml-4 font-medium cursor-pointer mt-2 pb-4 pl-4 border-b border-[#FEF4F5] hover:underline">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-              </li>
-              <li className="cat-list ml-4 font-medium cursor-pointer mt-2 pb-4 pl-4 border-b border-[#FEF4F5] hover:underline">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-              </li>
+              {categoryData.blogs.slice(0, 4).map((blog, index) => (
+                <li
+                  key={index}
+                  className="cat-list ml-4 font-medium cursor-pointer mt-2 pb-4 pl-4 border-b border-[#FEF4F5] hover:underline"
+                >
+                  <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="my-12">
             <h4 className="ml-6 font-bold text-xl relative">
               <svg
-                className="w-4 h-4 fill-accent inline absolute top-1/2 -left-6 transform -translate-y-1/2"
+                className="w-4 h-4 fill-accent inline absolute top-1/2 -left-6 transform -translate-y-1/4"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -470,74 +515,36 @@ function Blog() {
               Comments
             </h4>
             <div className="mt-12 flex flex-col gap-6">
-              <div className="p-3 flex items-center gap-8">
-                <img
-                  className="self-start w-16 h-16 rounded-full"
-                  src="/about-personal.webp"
-                  alt=""
-                />
-                <div className="">
-                  <p className="font-semibold">
-                    John Doe
-                    <span className="text-sm ml-2 font-normal align-middle">
-                      2 hours ago
-                    </span>
-                  </p>
-                  <p className="mt-3 leading-relaxed tracking-wide">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Consequuntur assumenda architecto dolore recusandae porro
-                    sunt.
-                  </p>
-                </div>
-              </div>
-              <div className="p-3 flex items-center gap-8">
-                <img
-                  className="self-start w-16 h-16 rounded-full"
-                  src="/about-personal.webp"
-                  alt=""
-                />
-                <div className="">
-                  <p className="font-semibold">
-                    John Doe
-                    <span className="text-sm ml-2 font-normal align-middle">
-                      2 hours ago
-                    </span>
-                  </p>
-                  <p className="mt-3 leading-relaxed tracking-wide">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Consequuntur assumenda architecto dolore recusandae porro
-                    sunt.
-                  </p>
-                </div>
-              </div>
+              {comments.length ? (
+                comments.map((comment, index) => (
+                  <div key={index} className="p-3 flex items-center gap-8">
+                    <img
+                      className="self-start w-16 h-16 rounded-full"
+                      src={`https://ui-avatars.com/api/?name=${comment.name}&background=random&rounded=true`}
+                      alt={comment.name}
+                    />
+                    <div className="">
+                      <p className="font-semibold">
+                        {comment.name}
+                        <span className="text-sm ml-2 font-normal align-middle">
+                          {comment.timestamp}
+                        </span>
+                      </p>
+                      <p className="mt-3 leading-relaxed tracking-wide">
+                        {comment.comment}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-semibold">
+                  Be the first to Comment!
+                </p>
+              )}
             </div>
             <div className="my-8">
               <h4 className="font-bold text-lg mb-8">Leave a Reply!</h4>
-              <form action="POST" className="flex flex-col gap-6">
-                <input
-                  className="bg-white p-3 h-10 w-full border border-[#feeaec] rounded focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-                  type="text"
-                  name="name"
-                  id=""
-                  placeholder="Name"
-                  required
-                  autoComplete="on"
-                />
-                <input
-                  className="bg-white rounded p-3 h-24 w-full border border-[#feeaec] focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-                  type="text"
-                  name="comment"
-                  placeholder="Comment"
-                  required
-                  autoComplete="on"
-                />
-                <button
-                  className="w-max rounded bg-accent text-white p-3 hover:bg-darkAccent transition-all duration-300 ease-in-out"
-                  type="submit"
-                >
-                  Post Comment
-                </button>
-              </form>
+              <AddComment blogId={blogData.id} />
             </div>
           </div>
         </div>

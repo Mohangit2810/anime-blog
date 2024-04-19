@@ -55,7 +55,7 @@ function Footer() {
                 <p className="text-sm">
                   Follow on <span className="font-semibold">MAL</span>
                 </p>
-                <img className="w-5 h-5" src="MAL.svg" alt="MAL" />
+                <img className="w-5 h-5" src="/MAL.svg" alt="MAL" />
               </li>
               <li className="flex items-center justify-between gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                 <p className="text-sm">

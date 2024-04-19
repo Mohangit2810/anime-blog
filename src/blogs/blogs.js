@@ -10,7 +10,7 @@ function renderMarkdownWithClasses(markdownContent) {
     .replace(/<\/li>/g, "</li></ul>")
     .replace(
       /!\[(.*?)\]\((.*?)\)/g,
-      '<img class="rounded my-8 mx-auto" src="$2" alt="$1" />'
+      '<img class="rounded my-8 max-h-96 mx-auto" src="$2" alt="$1" />'
     )
     .replace(
       /<p>(.*?)<\/p>/g,
@@ -78,17 +78,19 @@ const blogs = [
     id: 1,
     author: "MohanRaji",
     title: "Why you should watch K-On ?",
-    titleImage: "/hero.jpg",
+    titleImage: "/big-blog.jpg",
     published: "28, August 2021",
     updated: "29, August 2021",
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Slice of Life",
+    categoryId: 1,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog1.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
+    quote: ' "Graduation isnt the end" - Hirasawa Yui',
   },
   {
     id: 2,
@@ -100,11 +102,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Shonen",
+    categoryId: 2,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog2.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog2.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 3,
@@ -116,11 +120,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Rom-Com",
+    categoryId: 3,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog3.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog3.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 4,
@@ -132,11 +138,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Community",
+    categoryId: 4,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog4.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog4.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 5,
@@ -148,11 +156,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Gacha",
+    categoryId: 5,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog5.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog5.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 6,
@@ -164,11 +174,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Bgmi",
+    categoryId: 6,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog6.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog6.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 7,
@@ -180,11 +192,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Isekai",
+    categoryId: 7,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog7.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog7.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 8,
@@ -196,11 +210,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Random",
+    categoryId: 8,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog8.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog8.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
     id: 9,
@@ -212,11 +228,13 @@ const blogs = [
     minsRead: "5",
     tags: ["CGDCT", "Slice of Life"],
     mainCategory: "Slice of Life",
+    categoryId: 1,
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
     content: await renderMarkdownFile("/src/blogs/blog1.md"),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
+    quote: "Graduation isnt the end - Hirasawa Yui",
   },
 ];
 
