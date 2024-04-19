@@ -2,7 +2,7 @@ function Subscribe() {
   return (
     <div className="relative bg-white flex items-center gap-24 px-56 py-20 mb-12">
       <div className="flex flex-col gap-6">
-        <h2 className="text-4xl font-bold">Subscribe to our Channel 👋</h2>
+        <h3 className="text-4xl font-bold">Subscribe to our Channel 👋</h3>
         <p className="text-xl leading-relaxed">
           Join youself in this <b>Community</b> of outrageous takes <br /> about
           <b> anime</b> , <b>manga</b> and in video games.

@@ -32,7 +32,10 @@ function ContactCard() {
   return (
     <div className="mx-96 my-24">
       <form id="form" onSubmit={onSubmit}>
-        <h1 className="text-4xl text-center font-bold mb-8">Contact</h1>
+        <h1 className="text-4xl text-center font-bold mb-8">
+          {" "}
+          <span className="border-b-4 border-accent">Contact</span>
+        </h1>
         <p className="text-base text-center mb-12">
           Feel free to send a <b>message</b> , just fill the form below and i
           <b> will reply you shortly </b>! 👍
