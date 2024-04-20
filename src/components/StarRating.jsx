@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-function StarRating({ rating }) {
+function StarRating({ rating, total }) {
   const stars = Array.from({ length: 5 }, (_, index) => (
     <svg
       key={index}
@@ -15,7 +15,11 @@ function StarRating({ rating }) {
     </svg>
   ));
 
-  return <div className="flex gap-2">{stars}</div>;
+  return (
+    <div className="flex items-center gap-2">
+      {stars} <span className="pt-1 align-middle">({total})</span>
+    </div>
+  );
 }
 
 export default StarRating;

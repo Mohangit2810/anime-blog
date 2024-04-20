@@ -7,32 +7,58 @@ import categories from "../blogs/categories";
 import StarRating from "../components/StarRating";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import AddComment from "../components/AddComment";
-import { getComments } from "../comment-section/commentSecion";
+import CommentSection from "../components/CommentSection";
+import RateArticle from "../components/RateArticle";
+import { v4 as uuidv4 } from "uuid";
+import { getRating, getBlogRating } from "../comment-section/commentSecion";
 
 function Blog() {
   let { blogId } = useParams();
   const [htmlContent, setHtmlContent] = useState("");
-  const [comments, setComments] = useState([]);
+  const [userId, setUserId] = useState(1);
   const [activeHeadingId, setActiveHeadingId] = useState(null);
+  const [rating, setRating] = useState(0);
+  const [updateRating, setUpdateRating] = useState(0);
+  const [ratingData, setRatingData] = useState({
+    averageRating: 0,
+    totalRating: 0,
+  });
   const blogData = blogs.find((blog) => blog.id === parseInt(blogId));
   const categoryData = categories.find(
     (category) => category.id === blogData.categoryId
   );
   const mainHeadings = blogData.headings;
+  useEffect(() => {
+    // Check if user ID is already stored in local storage
+    const storedUserId = localStorage.getItem("userId");
+
+    if (storedUserId) {
+      // User ID exists in local storage, use it
+      setUserId(storedUserId);
+    } else {
+      // User ID doesn't exist in local storage, generate a new one
+      const newUserId = uuidv4();
+      setUserId(newUserId);
+      // Store the new user ID in local storage
+      localStorage.setItem("userId", newUserId);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const commentsData = await getComments(blogId);
-        setComments(commentsData);
-      } catch (error) {
-        console.error("Error fetching comments:", error);
+    const fetchRating = async () => {
+      const rating = await getRating(userId, blogId);
+      if (rating) {
+        setRating(rating);
       }
     };
+    const fetchBlogRating = async () => {
+      const ratingData = await getBlogRating(blogId);
+      setRatingData(ratingData);
+    };
 
-    fetchComments();
-  }, [blogId]);
+    fetchRating();
+    fetchBlogRating();
+  }, [userId, blogId, updateRating]);
 
   useEffect(() => {
     const fetchBlogContent = async () => {
@@ -203,7 +229,10 @@ function Blog() {
                 </svg>
                 <span className="font-medium mr-2">Rating : </span>
 
-                <StarRating rating={blogData.rating} />
+                <StarRating
+                  rating={ratingData.averageRating}
+                  total={ratingData.totalRating}
+                />
               </li>
             </ul>
           </div>
@@ -259,9 +288,7 @@ function Blog() {
               src={blogData.titleImage}
               alt="art"
             />
-
             <div id="blog-content" className="mt-16"></div>
-
             <div className="relative mt-12 border-y border-accent p-12">
               <p className="text-lg text-center tracking-wide leading-relaxed">
                 {blogData.quote}
@@ -305,7 +332,13 @@ function Blog() {
                   {tag} {index !== blogData.tags.length - 1 ? "," : " "}
                 </span>
               ))}
-            </p>
+            </p>{" "}
+            <RateArticle
+              setUpdateRating={setUpdateRating}
+              userId={userId}
+              rating={rating}
+              blogId={blogData.id}
+            />
             <div className=" my-12 w-full gap-4 flex items-center justify-center">
               <p className="font-semibold">Share Article :</p>
               <ul className="flex gap-6 ml-2">
@@ -514,38 +547,7 @@ function Blog() {
               </svg>
               Comments
             </h4>
-            <div className="mt-12 flex flex-col gap-6">
-              {comments.length ? (
-                comments.map((comment, index) => (
-                  <div key={index} className="p-3 flex items-center gap-8">
-                    <img
-                      className="self-start w-16 h-16 rounded-full"
-                      src={`https://ui-avatars.com/api/?name=${comment.name}&background=random&rounded=true`}
-                      alt={comment.name}
-                    />
-                    <div className="">
-                      <p className="font-semibold">
-                        {comment.name}
-                        <span className="text-sm ml-2 font-normal align-middle">
-                          {comment.timestamp}
-                        </span>
-                      </p>
-                      <p className="mt-3 leading-relaxed tracking-wide">
-                        {comment.comment}
-                      </p>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p className="text-center text-semibold">
-                  Be the first to Comment!
-                </p>
-              )}
-            </div>
-            <div className="my-8">
-              <h4 className="font-bold text-lg mb-8">Leave a Reply!</h4>
-              <AddComment blogId={blogData.id} />
-            </div>
+            <CommentSection blogId={blogData.id} />
           </div>
         </div>
       </div>
