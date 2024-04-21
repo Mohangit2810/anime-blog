@@ -23,7 +23,7 @@ function OurTeam() {
             <div className="flex items-center mt-4 gap-4">
               <p className="font-semibold text-base ">Social Links - </p>
               <div className="flex gap-4">
-                <a href="#">
+                <a href="https://twitter.com/MohanRaji212855">
                   <svg
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ function OurTeam() {
                     <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
                   </svg>
                 </a>
-                <a href="#">
+                <a href="https://instagram.com/mohan_raji_28?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
                   <svg
                     className="w-5 h-5 fill-accent"
                     xmlns="http://www.w3.org/2000/svg"
@@ -49,10 +49,10 @@ function OurTeam() {
                     <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
                   </svg>
                 </a>
-                <a href="#">
+                <a href="https://myanimelist.net/profile/_Homo_Sapien_">
                   <img className="w-5 h-5" src="MAL.svg" alt="MAL" />
                 </a>
-                <a href="#">
+                <a href="https://github.com/Mohangit2810">
                   <svg
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ function OurTeam() {
             <div className="flex items-center mt-4 gap-4">
               <p className="font-semibold text-base ">Social Links - </p>
               <div className="flex gap-4">
-                <a href="#">
+                <a href="https://twitter.com/MohanRaji212855">
                   <svg
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,8 @@ function OurTeam() {
                     <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
                   </svg>
                 </a>
-                <a href="#">
+
+                <a href="https://instagram.com/mohan_raji_28?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D">
                   <svg
                     className="w-5 h-5 fill-accent"
                     xmlns="http://www.w3.org/2000/svg"
@@ -113,10 +114,10 @@ function OurTeam() {
                     <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
                   </svg>
                 </a>
-                <a href="#">
+                <a href="https://myanimelist.net/profile/_Homo_Sapien_">
                   <img className="w-5 h-5" src="MAL.svg" alt="MAL" />
                 </a>
-                <a href="#">
+                <a href="https://github.com/Mohangit2810">
                   <svg
                     className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"

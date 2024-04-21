@@ -8,12 +8,11 @@ function RateArticle({ rating, blogId, userId, setUpdateRating }) {
       key={index}
       onClick={() => {
         addRating(blogId, index + 1, userId);
-        setUpdateRating((prev) => prev + 1);
+        setUpdateRating((prev) => !prev);
       }}
-      className={`cursor-pointer w-8 h-8 fill-${
-        index < rating ? "orange-300" : "gray-300"
-      }`}
+      className={`cursor-pointer w-8 h-8`}
       xmlns="http://www.w3.org/2000/svg"
+      fill={`${index < rating ? "orange" : "gray"}`}
       x="0px"
       y="0px"
       width="100"

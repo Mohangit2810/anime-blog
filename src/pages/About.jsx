@@ -4,6 +4,7 @@ import OurTeam from "../components/OurTeam";
 import Footer from "../components/Footer";
 import FeaturedMiniBlogs from "../components/FeaturedMiniBlogs";
 import RecentMiniBlogs from "../components/RecentMiniBlogs";
+import Subscribe from "../components/Subscribe";
 function About() {
   return (
     <div>
@@ -14,6 +15,7 @@ function About() {
         <FeaturedMiniBlogs />
         <RecentMiniBlogs />
       </div>
+      <Subscribe />
       <Footer />
     </div>
   );

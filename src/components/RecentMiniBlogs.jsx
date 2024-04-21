@@ -1,5 +1,8 @@
 import MiniCard from "./MiniCard";
+import blogs from "../blogs/blogs.js";
+
 function RecentMiniBlogs() {
+  const recentBlogs = blogs.slice(0, 3);
   return (
     <div>
       <h3 className="text-center font-bold text-xl mb-6">
@@ -35,9 +38,9 @@ function RecentMiniBlogs() {
         Recent Blogs
       </h3>
       <div className="flex flex-col gap-4">
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
+        {recentBlogs.map((blog, index) => (
+          <MiniCard blog={blog} key={index} />
+        ))}
       </div>
     </div>
   );

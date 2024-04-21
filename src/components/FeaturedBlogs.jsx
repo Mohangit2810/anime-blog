@@ -1,6 +1,9 @@
 import BlogCard from "./BlogCard";
 import BigBlogCard from "./BigBlogCard";
+import blogs from "../blogs/blogs.js";
+import { Link } from "react-router-dom";
 function FeaturedBlogs() {
+  const featuredBlogs = blogs.filter((blog) => blog.rating >= 3).slice(0, 5);
   return (
     <div className="mx-80 mb-24">
       <h2 className="text-center font-bold text-xl mb-6">
@@ -36,16 +39,20 @@ function FeaturedBlogs() {
         Featured Blogs
       </h2>
       <div className="flex flex-col gap-12">
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BigBlogCard />
+        {featuredBlogs.map((blog, index) =>
+          index === 0 ? (
+            <BigBlogCard key={index} blog={blog} />
+          ) : (
+            <BlogCard key={index} blog={blog} />
+          )
+        )}
       </div>
       <div className="flex items-center justify-center">
-        <button className="bg-accent text-white rounded px-6 py-2 mt-12 ">
-          View All Blogs
-        </button>
+        <Link to="/blog">
+          <button className="bg-accent text-white rounded px-6 py-2 mt-12 ">
+            View All Blogs
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -3,8 +3,9 @@ function StarRating({ rating, total }) {
   const stars = Array.from({ length: 5 }, (_, index) => (
     <svg
       key={index}
-      className={`w-4 h-4 fill-${index < rating ? "orange-300" : "gray-300"}`}
+      className="w-4 h-4"
       xmlns="http://www.w3.org/2000/svg"
+      fill={`${index < rating ? "orange" : "gray"}`}
       x="0px"
       y="0px"
       width="100"
@@ -16,8 +17,13 @@ function StarRating({ rating, total }) {
   ));
 
   return (
-    <div className="flex items-center gap-2">
-      {stars} <span className="pt-1 align-middle">({total})</span>
+    <div
+      className={`flex items-center gap-2 ${total === "none" ? "ml-2" : ""}`}
+    >
+      {stars}{" "}
+      <span className={total === "none" ? "hidden " : "pt-1 align-middle"}>
+        ({total})
+      </span>
     </div>
   );
 }

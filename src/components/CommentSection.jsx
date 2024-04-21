@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { getComments } from "../comment-section/commentSecion";
 import { addComment } from "../comment-section/commentSecion";
+import blogs from "../blogs/blogs";
 import { useState, useEffect } from "react";
 function CommentSection({ blogId }) {
+  const currentBlog = blogs.find((blog) => blog.id === blogId);
   const [comments, setComments] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [updatedComments, setUpdatedComments] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const commentsPerPage = 5;
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
@@ -17,7 +19,8 @@ function CommentSection({ blogId }) {
       blogId,
       newComment.comment,
       newComment.name,
-      newComment.timestamp
+      newComment.timestamp,
+      currentBlog.title
     );
     setName("");
     setComment("");

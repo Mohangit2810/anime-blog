@@ -31,13 +31,12 @@ const categories = [
   },
   {
     id: 4,
-    name: "Community",
-    image: "/community.gif",
+    name: "Romance",
+    image: "/romance.gif",
     description:
-      "Community is a genre which is targeted towards young teen boys. It often contains action-filled plots and is characterized by the main character's quest to become stronger.",
-    blogs: blogs.filter((blog) => blog.mainCategory === "Community"),
-    blogsNumber: blogs.filter((blog) => blog.mainCategory === "Community")
-      .length,
+      "Romance is a genre which is targeted towards young teen boys. It often contains action-filled plots and is characterized by the main character's quest to become stronger.",
+    blogs: blogs.filter((blog) => blog.mainCategory === "Romance"),
+    blogsNumber: blogs.filter((blog) => blog.mainCategory === "Romance").length,
   },
   {
     id: 5,

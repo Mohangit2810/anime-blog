@@ -1,5 +1,7 @@
 import MiniCard from "./MiniCard";
+import blogs from "../blogs/blogs.js";
 function FeaturedMiniBlogs() {
+  const featuredBlogs = blogs.filter((blog) => blog.rating >= 3).slice(0, 3);
   return (
     <div>
       <h3 className="text-center font-bold text-xl mb-6">
@@ -35,9 +37,9 @@ function FeaturedMiniBlogs() {
         Featured Blogs
       </h3>
       <div className="flex flex-col gap-4">
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
+        {featuredBlogs.map((blog, index) => (
+          <MiniCard blog={blog} key={index} />
+        ))}
       </div>
     </div>
   );

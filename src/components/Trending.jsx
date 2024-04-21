@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+import categories from "../blogs/categories";
+
 function Trending() {
+  const trendingCategories = categories.slice(0, 5);
   return (
     <div className="my-24">
       <h2 className="text-center font-bold text-xl mb-6">
@@ -35,77 +39,31 @@ function Trending() {
       </h2>
       <div className="flex items-center justify-around mx-64 py-4 px-12 bg-white rounded-full">
         <ul className="flex items-center justify-center gap-12">
-          <li className="trending-icon flex flex-col items-center justify-center gap-3">
-            <div className="relative">
-              <img
-                className="rounded-full w-16 h-16 object-cover"
-                src="/slice.webp"
-                alt="SOL"
-              />
-              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-                3
-              </span>
-            </div>
-            <p className="font-semibold text-center">Slice of Life</p>
-          </li>
-          <li className="trending-icon flex flex-col items-center justify-center gap-3">
-            <div className="relative">
-              <img
-                className="rounded-full w-16 h-16 object-cover"
-                src="/shounen.gif"
-                alt="SOL"
-              />
-              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-                3
-              </span>
-            </div>
-            <p className="font-semibold text-center">Shounen</p>
-          </li>
-          <li className="trending-icon flex flex-col items-center justify-center gap-3">
-            <div className="relative">
-              <img
-                className="rounded-full w-16 h-16 object-cover"
-                src="/romcom.gif"
-                alt="SOL"
-              />
-              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-                3
-              </span>
-            </div>
-            <p className="font-semibold text-center">Rom Com</p>
-          </li>
-          <li className="trending-icon flex flex-col items-center justify-center gap-3">
-            <div className="relative">
-              <img
-                className="rounded-full w-16 h-16 object-cover"
-                src="/community.gif"
-                alt="SOL"
-              />
-              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-                3
-              </span>
-            </div>
-            <p className="font-semibold text-center">Community</p>
-          </li>
-          <li className="trending-icon flex flex-col items-center justify-center gap-3">
-            <div className="relative">
-              <img
-                className="rounded-full w-16 h-16 object-cover"
-                src="/gacha.gif"
-                alt="SOL"
-              />
-              <span className="absolute -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
-                3
-              </span>
-            </div>
-            <p className="font-semibold text-center">Gacha</p>
-          </li>
+          {trendingCategories.map((category, index) => (
+            <Link key={index} to={`/categories/${category.id}`}>
+              <li className="trending-icon flex flex-col items-center justify-center gap-3">
+                <div className="gif-container relative before:bg-[#f266ee]">
+                  <img
+                    className="category-gif rounded-full w-16 h-16 object-cover"
+                    src={category.image}
+                    alt={category.name}
+                  />
+                  <span className="absolute z-10 -top-[5px] -right-[5px] bg-accent text-white rounded-full px-[8px] py-[2px] text-center text-sm">
+                    {category.blogsNumber}
+                  </span>
+                </div>
+                <p className="font-semibold text-center">{category.name}</p>
+              </li>
+            </Link>
+          ))}
         </ul>
         <div className="flex items-center justify-center gap-8">
           <p className="font-semibold text-center">Or...</p>
-          <button className="bg-accent text-white rounded px-6 py-2">
-            Explore All
-          </button>
+          <Link to="/categories">
+            <button className="bg-accent text-white rounded px-6 py-2 hover:bg-darkAccent">
+              Explore All
+            </button>
+          </Link>
         </div>
       </div>
     </div>

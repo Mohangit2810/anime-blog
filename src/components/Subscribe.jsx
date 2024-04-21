@@ -1,3 +1,5 @@
+// import { Link } from "react-router-dom";
+
 function Subscribe() {
   return (
     <div className="relative bg-white flex items-center gap-24 px-56 py-20 mb-12">
@@ -12,9 +14,14 @@ function Subscribe() {
         <p className="text-lg">
           Subcribe to the channel <b>Divertido Anime Clips</b> .
         </p>
-        <button className="bg-accent text-white rounded px-6 py-2">
-          Go to Youtube
-        </button>
+        <a
+          href="https://youtube.com/@DivertidoAnimeClips-ho6rd?si=PmAiKAtwq7P2gPZJ"
+          target="_blank"
+        >
+          <button className="bg-accent text-white rounded px-6 py-2 hover:bg-darkAccent">
+            Go to Youtube
+          </button>
+        </a>
       </div>
       <img
         className="absolute -left-[60px] w-72"

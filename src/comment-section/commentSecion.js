@@ -30,8 +30,7 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-
-// Access the currently signed-in user
+// Create a transporter
 
 async function addComment(blogId, comment, name, timestamp) {
   // Add a new document with a generated id.
@@ -42,6 +41,7 @@ async function addComment(blogId, comment, name, timestamp) {
       name: name,
       timestamp: timestamp,
     });
+
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
