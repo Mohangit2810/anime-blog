@@ -4,7 +4,7 @@ function OurTeam() {
       <h2 className="text-center text-3xl font-bold my-16">
         <span className="border-b-4 border-accent">Our Team</span>
       </h2>
-      <div className="mx-56 mb-12 flex flex-col gap-8">
+      <div className="mx-12 xl:mx-56 mb-12 flex flex-col gap-8">
         <div className="bg-white rounded p-6 flex gap-6">
           <img
             className="rounded-full h-40 w-40 mx-auto self-center"

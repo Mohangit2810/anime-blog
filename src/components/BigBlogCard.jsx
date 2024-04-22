@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 function BigBlogCard({ blog }) {
+  const navigation = useNavigate();
+  function handleCategoryClick(categoryId) {
+    navigation.navigate(`/categories/${categoryId}`);
+  }
   return (
     <Link to={`/blog/${blog.id}`}>
       <article className="flex flex-col items-center justify-center gap-8 rounded-lg px-3 py-4 bg-white">
@@ -11,11 +15,13 @@ function BigBlogCard({ blog }) {
             src={blog.titleImage.landscape}
             alt={blog.title}
           />
-          <Link to={`/categories/${blog.categoryId}`}>
-            <span className="absolute top-6 -left-5 bg-[#0077b5] text-white text-sm rounded-full py-2 pl-12 pr-8 transition-all duration-300 ease-in-out hover:-left-2">
-              {blog.mainCategory}
-            </span>
-          </Link>
+
+          <span
+            onClick={() => handleCategoryClick(blog.categoryId)}
+            className="absolute top-6 -left-5 bg-[#0077b5] text-white text-sm rounded-full py-2 pl-12 pr-8 transition-all duration-300 ease-in-out hover:-left-2"
+          >
+            {blog.mainCategory}
+          </span>
         </div>
 
         <ul className="flex items-center gap-6">

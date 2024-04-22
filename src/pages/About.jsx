@@ -11,7 +11,7 @@ function About() {
       <Header />
       <AboutUs />
       <OurTeam />
-      <div className="flex gap-24 my-20 mx-56 justify-center">
+      <div className="flex gap-24 my-20 mx-12 xl:mx-56 justify-center">
         <FeaturedMiniBlogs />
         <RecentMiniBlogs />
       </div>

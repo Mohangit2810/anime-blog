@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
-function GridBlogCard({ blog, index }) {
+import { Link, useNavigate } from "react-router-dom";
+function GridBlogCard({ blog }) {
+  const navigation = useNavigate();
+  function handleCategoryClick(categoryId) {
+    navigation.navigate(`/categories/${categoryId}`);
+  }
   return (
-    <Link key={index} to={`/blog/${blog.id}`}>
+    <Link to={`/blog/${blog.id}`}>
       <article className="flex flex-col gap-6 rounded-2xl bg-white">
         <div className="shrink-0 relative overflow-hidden">
           <img
@@ -10,11 +14,13 @@ function GridBlogCard({ blog, index }) {
             src={blog.titleImage.landscape}
             alt={blog.title}
           />
-          <Link to={`/categories/${blog.categoryId}`}>
-            <span className="absolute top-6 -left-5 bg-[#0077b5] text-white text-sm rounded-full py-2 pl-8 pr-6 transition-all duration-300 ease-in-out hover:-left-3">
-              {blog.mainCategory}
-            </span>
-          </Link>
+
+          <span
+            onClick={() => handleCategoryClick(blog.categoryId)}
+            className="absolute top-6 -left-5 bg-[#0077b5] text-white text-sm rounded-full py-2 pl-8 pr-6 transition-all duration-300 ease-in-out hover:-left-3"
+          >
+            {blog.mainCategory}
+          </span>
         </div>
         <div className="flex flex-col gap-4 p-4">
           <h3 className="text-xl font-bold text-center hover:underline">

@@ -452,3 +452,8 @@ body {
   font-weight: 600;
   border-left: 2px solid #ff6481;
 }
+
+#sideNavBar .active {
+  font-weight: 600;
+  border-left: 2px solid #ff6481;
+}

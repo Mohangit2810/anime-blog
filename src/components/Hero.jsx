@@ -1,8 +1,8 @@
 function Hero() {
   return (
-    <div className="flex items-center justify-center gap-24 mt-32 mx-52">
+    <div className="flex items-center justify-center gap-24 mt-32 mx-12 xl:mx-52">
       <div className="flex flex-col gap-6">
-        <h1 className="text-[40px] tracking-wide whitespace-nowrap">
+        <h1 className="text-[32px] xl:text-[40px] tracking-wide whitespace-nowrap">
           Welcome to
           <span className="text-accent font-medium"> AnimeBlogz</span>👋
         </h1>
@@ -12,7 +12,7 @@ function Hero() {
           Gacha Games !. Check out the posts and let us know what you think!
         </p>
         <h4 className="text-lg font-medium">Let&apos;s Connect</h4>
-        <div className="social-buttons w-3/5 ">
+        <div className="social-buttons w-4/5 xl:w-3/5 ">
           <a
             href="https://github.com/Mohangit2810"
             target="_blank"

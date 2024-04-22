@@ -30,7 +30,7 @@ function ContactCard() {
     }
   };
   return (
-    <div className="mx-96 my-24">
+    <div className="mx-24 xl:mx-96 my-12 xl:my-24">
       <form id="form" onSubmit={onSubmit}>
         <h1 className="text-4xl text-center font-bold mb-8">
           {" "}

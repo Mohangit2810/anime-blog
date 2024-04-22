@@ -37,7 +37,7 @@ function Trending() {
         </svg>
         Trending Topics
       </h2>
-      <div className="flex items-center justify-around mx-64 py-4 px-12 bg-white rounded-full">
+      <div className="flex items-center justify-around mx-12 xl:mx-64 py-4 px-12 bg-white rounded-full">
         <ul className="flex items-center justify-center gap-12">
           {trendingCategories.map((category, index) => (
             <Link key={index} to={`/categories/${category.id}`}>

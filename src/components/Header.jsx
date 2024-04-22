@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import SideBar from "./SideBar";
 
 function Header() {
   const [sticky, setSticky] = useState(false);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const changeSticky = () => {
     if (window.scrollY >= 5) {
       setSticky(true);
@@ -12,87 +14,78 @@ function Header() {
   };
   window.addEventListener("scroll", changeSticky);
   return (
-    <nav
-      className={`bg-white w-4/5 h-20 flex items-center justify-around transition-all duration-300 ease ${
-        sticky
-          ? "rounded-none w-full fixed top-0 z-[100]"
-          : "rounded-full  mx-auto mt-8"
-      }`}
-    >
-      <Link to="/">
-        <img className="w-40" src="/logo-zento-personal-1.png" alt="logo" />
-      </Link>
-      <ul className="flex items-center gap-8">
-        <li className="font-medium">
-          <NavLink to="/"> Home</NavLink>
-        </li>
-        <li className="font-medium">
-          <NavLink to="/blog"> Blogs</NavLink>
-        </li>
-        <li className="font-medium">
-          <NavLink to="/about"> About</NavLink>
-        </li>
-        <li className="font-medium">
-          <NavLink to="/categories"> Categories</NavLink>
-        </li>
-        <li className="font-medium">
-          <NavLink to="/contact"> Contact</NavLink>
-        </li>
-      </ul>
-      {/* <div className="input-wrapper">
-        <button className="icon">
+    <>
+      <nav
+        className={`bg-white  h-20 flex items-center justify-around transition-all duration-300 ease shadow ${
+          sticky
+            ? "rounded-none w-full fixed top-0 z-[100]"
+            : "rounded-none xl:rounded-full w-full xl:w-4/5 xl:p-0 mx-auto mt-0 xl:mt-8"
+        }`}
+      >
+        <Link to="/">
+          <img className="w-40" src="/logo-zento-personal-1.png" alt="logo" />
+        </Link>
+        <ul className="hidden xl:flex  items-center gap-8">
+          <li className="font-medium">
+            <NavLink to="/"> Home</NavLink>
+          </li>
+          <li className="font-medium">
+            <NavLink to="/blog"> Blogs</NavLink>
+          </li>
+          <li className="font-medium">
+            <NavLink to="/about"> About</NavLink>
+          </li>
+          <li className="font-medium">
+            <NavLink to="/categories"> Categories</NavLink>
+          </li>
+          <li className="font-medium">
+            <NavLink to="/contact"> Contact</NavLink>
+          </li>
+        </ul>
+
+        <a
+          className="order-first xl:order-last cursor-pointer"
+          href="https://youtube.com/@DivertidoAnimeClips-ho6rd?si=PmAiKAtwq7P2gPZJ"
+          target="_blank"
+        >
           <svg
-            className=""
-            width="25px"
-            height="25px"
-            viewBox="0 0 24 24"
-            fill="none"
+            className="h-16 yt-icon"
             xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="100"
+            height="100"
+            viewBox="0 0 48 48"
           >
             <path
-              d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-              stroke="#000"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              fill="#FF3D00"
+              d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"
             ></path>
-            <path
-              d="M22 22L20 20"
-              stroke="#000"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
+            <path fill="#FFF" d="M20 31L20 17 32 24z"></path>
+          </svg>
+        </a>
+        <button
+          className=" xl:hidden cursor-pointer"
+          onClick={() => setIsSideBarOpen(!isSideBarOpen)}
+        >
+          <svg
+            className="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="100"
+            height="100"
+            viewBox="0 0 50 50"
+          >
+            <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
           </svg>
         </button>
-        <input
-          type="text"
-          name="text"
-          className="input"
-          placeholder="search.."
-        />
-      </div> */}
-      <a
-        href="https://youtube.com/@DivertidoAnimeClips-ho6rd?si=PmAiKAtwq7P2gPZJ"
-        target="_blank"
-      >
-        <svg
-          className="h-16 yt-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="100"
-          height="100"
-          viewBox="0 0 48 48"
-        >
-          <path
-            fill="#FF3D00"
-            d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"
-          ></path>
-          <path fill="#FFF" d="M20 31L20 17 32 24z"></path>
-        </svg>
-      </a>
-    </nav>
+      </nav>
+      <SideBar
+        isSideBarOpen={isSideBarOpen}
+        setIsSideBarOpen={setIsSideBarOpen}
+      />
+    </>
   );
 }
 

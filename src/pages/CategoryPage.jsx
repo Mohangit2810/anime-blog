@@ -15,7 +15,7 @@ function CategoryPage() {
     <div>
       <Header />
 
-      <div className="flex my-28 items-center justify-center gap-6">
+      <div className="flex my-12 xl:my-28 items-center justify-center gap-6">
         <div className="article-cat cursor-pointer flex items-center justify-center gap-8 border-r border-accent pr-12">
           <div className="gif-container relative before:bg-[#f266ee]">
             <img
@@ -41,7 +41,7 @@ function CategoryPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 mb-16 gap-12 mx-56">
+      <div className="grid grid-cols-3 mb-16 gap-6 xl:gap-12 mx-12 xl:mx-56">
         {category.blogs.map((blog, index) => (
           <GridBlogCard key={index} blog={blog} />
         ))}
