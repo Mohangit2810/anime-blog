@@ -5,17 +5,17 @@ import StarRating from "../components/StarRating";
 // import { useState } from "react";
 
 function BlogSideBar({ blogData, ratingData }) {
-  function extractH2Headings(htmlContent) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, "text/html");
-    const h2Elements = doc.querySelectorAll("h2");
-    const h2Headings = [];
-    h2Elements.forEach((element) => {
-      h2Headings.push(element.textContent.trim());
-    });
-    return h2Headings;
-  }
-  console.log(extractH2Headings(blogData.content));
+  // function extractH2Headings(htmlContent) {
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(htmlContent, "text/html");
+  //   const h2Elements = doc.querySelectorAll("h2");
+  //   const h2Headings = [];
+  //   h2Elements.forEach((element) => {
+  //     h2Headings.push(element.textContent.trim());
+  //   });
+  //   return h2Headings;
+  // }
+  // console.log(extractH2Headings(blogData.content));
   function scrollToHeading(event, index) {
     event.preventDefault();
     console.log(index);
