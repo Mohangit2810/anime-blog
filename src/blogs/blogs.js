@@ -57,12 +57,12 @@ async function renderMarkdownFile(filePath) {
 }
 
 async function getContent(blogId) {
-  const content = await renderMarkdownFile(`/src/blogs/blog${blogId}.md`);
+  const content = await renderMarkdownFile(`/blogs/blog${blogId}.md`);
   return content[0];
 }
 
 async function getHeadings(blogId) {
-  const content = await renderMarkdownFile(`/src/blogs/blog${blogId}.md`);
+  const content = await renderMarkdownFile(`/blogs/blog${blogId}.md`);
   return content[1];
 }
 
