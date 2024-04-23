@@ -24,7 +24,7 @@ function RateArticle({ rating, blogId, userId, setUpdateRating }) {
   ));
   return (
     <div>
-      <div className="flex gap-4 items-center justify-center py-8">
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-center py-8">
         <h4 className="text-2xl font-semibold text-center">
           Rate this article :
         </h4>

@@ -8,6 +8,7 @@ export default {
       lg: { min: "1000px" },
       md: { min: "767px" },
       sm: { min: "639px" },
+      xs: { min: "300px" },
     },
     extend: {
       colors: {

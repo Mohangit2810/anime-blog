@@ -6,7 +6,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen }) {
     <div
       className={
         isSideBarOpen
-          ? "w-96 p-24 bg-primary fixed right-0 top-0 h-full z-[105] overflow-hidden transition-all duration-300 ease-in-out"
+          ? "w-60 md:w-96 p-8 md:p-24 bg-primary fixed right-0 top-0 h-full z-[105] overflow-hidden transition-all duration-300 ease-in-out"
           : "hidden transition-all duration-300 ease-in-out"
       }
     >
@@ -27,7 +27,7 @@ function SideBar({ isSideBarOpen, setIsSideBarOpen }) {
           <path d="M 15.125 12.28125 L 12.28125 15.125 L 22.21875 25 L 12.28125 34.875 L 15.125 37.71875 L 25.0625 27.84375 L 35 37.71875 L 37.8125 34.875 L 27.90625 25 L 37.8125 15.125 L 35 12.28125 L 25.0625 22.15625 Z"></path>
         </svg>
       </button>
-      <div>
+      <div className=" mt-12 md:mt-0">
         <img src="/logo-zento-personal-1.png" alt="logo" />
         <p className="text-center mt-4">Anime Blogz</p>
       </div>

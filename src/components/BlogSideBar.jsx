@@ -17,9 +17,9 @@ function BlogSideBar({ blogData, ratingData, mainHeadings }) {
     }
   }
   return (
-    <aside className="sticky top-32 z-2 w-max h-max mb-28">
-      <div>
-        <h4 className="font-bold text-xl">
+    <aside className="static md:flex md:gap-24 lg:!block lg:sticky lg:top-32 lg:z-2 ml-4 lg:ml-0 w-max h-max mb-12 lg:!mb-28 ">
+      <div className="">
+        <h4 className="font-bold text-xl ml-2">
           <svg
             className="w-4 h-4 fill-accent inline mr-2"
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ function BlogSideBar({ blogData, ratingData, mainHeadings }) {
           </svg>
           Article Info
         </h4>
-        <ul className=" bg-white mt-6 text-sm p-8 pr-16 rounded flex flex-col items-start gap-4 w-max">
+        <ul className=" bg-white mt-6 text-sm p-4 lg:p-8 pr-2 lg:pr-16 rounded flex flex-col items-start gap-4 w-64 lg:!w-max">
           <li className="flex items-center text-center">
             <svg
               className="inline-block mr-2 w-5 h-5 fill-accent"
@@ -115,8 +115,8 @@ function BlogSideBar({ blogData, ratingData, mainHeadings }) {
           </li>
         </ul>
       </div>
-      <div className="mt-12">
-        <h4 className="font-bold text-xl">
+      <div className="mt-12 md:mt-0 lg:!mt-12 w-64 sm:w-80 lg:!w-80">
+        <h4 className="font-bold text-xl ml-2">
           <svg
             className="w-4 h-4 fill-accent inline mr-2"
             xmlns="http://www.w3.org/2000/svg"

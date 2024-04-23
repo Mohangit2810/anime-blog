@@ -16,7 +16,7 @@ function MiniCard({ blog }) {
           <h3 className="text-base font-semibold hover:underline">
             {blog.title}
           </h3>
-          <p className="flex items-start text-start">
+          <p className="flex text-sm xs:text-base items-start text-start">
             <svg
               className="inline-block mr-2 w-5 h-5 fill-accent"
               xmlns="http://www.w3.org/2000/svg"

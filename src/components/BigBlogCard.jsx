@@ -8,10 +8,10 @@ function BigBlogCard({ blog }) {
   }
   return (
     <Link to={`/blog/${blog.id}`}>
-      <article className="flex flex-col items-center justify-center gap-8 rounded-lg px-3 py-4 bg-white">
+      <article className="flex flex-col items-center justify-center gap-6 md:gap-8 rounded-lg px-3 py-4 bg-white">
         <div className="shrink-0 relative overflow-hidden">
           <img
-            className="blog-card-image h-[500px] rounded-lg"
+            className="blog-card-image h-[250px] md:h-[500px] rounded-lg"
             src={blog.titleImage.landscape}
             alt={blog.title}
           />
@@ -24,8 +24,8 @@ function BigBlogCard({ blog }) {
           </span>
         </div>
 
-        <ul className="flex items-center gap-6">
-          <li className="flex items-center text-center">
+        <ul className=" flex flex-col md:flex-row items-center gap-3 md:gap-6">
+          <li className="hidden md:block flex items-center text-center">
             <svg
               className="inline-block mr-2 w-5 h-5 fill-accent"
               xmlns="http://www.w3.org/2000/svg"
@@ -69,13 +69,15 @@ function BigBlogCard({ blog }) {
             <StarRating rating={blog.rating} total="none" />
           </li>
         </ul>
-        <h3 className="text-2xl font-bold hover:underline">{blog.title}</h3>
-        <p className="tracking-wider leading-relaxed text-center px-24">
+        <h3 className=" text-xl md:text-2xl font-bold hover:underline">
+          {blog.title}
+        </h3>
+        <p className="text-sm md:text-base tracking-wide md:tracking-wider leading-normal md:leading-relaxed text-center px-0 md:px-24">
           {blog.description}
           ...
         </p>
-        <div className="flex items-center justify-between gap-24 my-2">
-          <ul className="flex gap-4">
+        <div className="flex flex-col xs:flex-row gap-4 xs:gap-8 md:gap-24 my-2">
+          <ul className="flex gap-4 text-sm md:text-base">
             {blog.tags.map((tag, index) => (
               <li
                 key={index}
@@ -85,7 +87,7 @@ function BigBlogCard({ blog }) {
               </li>
             ))}
           </ul>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center self-center xs:self-auto">
             <img
               className="w-6 h-6 rounded-full"
               src={

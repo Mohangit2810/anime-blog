@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="px-12 xl:px-48 py-8 xl:py-12">
-      <div className="flex items-center gap-32 xl:gap-60">
-        <div className="flex gap-12 xl:gap-24">
+    <footer className="px-6 md:px-12 xl:!px-48 py-8 xl:!py-12">
+      <div className="flex flex-col md:flex-row items-center gap-16 md:gap-32 xl:!gap-60">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 xl:!gap-24">
           <div>
-            <h4 className="font-bold text-xl relative">
+            <h4 className="ml-2 md:ml-0 font-bold text-lg md:text-xl relative">
               <svg
                 className="w-4 h-4 fill-accent inline absolute top-1/2 -left-6 transform -translate-y-1/2"
                 xmlns="http://www.w3.org/2000/svg"
@@ -20,9 +20,9 @@ function Footer() {
               </svg>
               Follow Me !
             </h4>
-            <ul className="flex flex-col gap-6 mt-6">
+            <ul className="grid grid-cols-2 md:flex md:flex-col gap-x-4 md:gap-2 md:gap-6 mt-6">
               <a href="https://twitter.com/MohanRaji212855" target="_blank">
-                <li className="flex items-center justify-between gap-12 xl:gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
+                <li className="flex items-center justify-between gap-4 md:gap-12 xl:!gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                   <p className="text-sm">
                     Follow on <span className="font-semibold">Twitter</span>
                   </p>
@@ -43,7 +43,7 @@ function Footer() {
                 href="https://instagram.com/mohan_raji_28?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
                 target="_blank"
               >
-                <li className="flex items-center justify-between gap-12 xl:gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
+                <li className="flex items-center justify-between gap-4 md:gap-12 xl:!gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                   <p className="text-sm">
                     Follow on <span className="font-semibold">Instagram</span>
                   </p>
@@ -64,7 +64,7 @@ function Footer() {
                 href="https://myanimelist.net/profile/_Homo_Sapien_"
                 target="_blank"
               >
-                <li className="flex items-center justify-between gap-12 xl:gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
+                <li className="flex items-center justify-between gap-4 md:gap-12 xl:!gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                   <p className="text-sm">
                     Follow on <span className="font-semibold">MAL</span>
                   </p>
@@ -72,7 +72,7 @@ function Footer() {
                 </li>
               </a>
               <a href="https://github.com/Mohangit2810" target="_blank">
-                <li className="flex items-center justify-between gap-12 xl:gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
+                <li className="flex items-center justify-between gap-4 md:gap-12 xl:!gap-24 py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                   <p className="text-sm">
                     Follow on <span className="font-semibold">GitHub</span>
                   </p>
@@ -92,7 +92,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-xl relative">
+            <h4 className="ml-2 md:ml-0 font-bold text-lg md:text-xl relative">
               <svg
                 className="w-4 h-4 fill-accent inline absolute top-1/2 -left-6 transform -translate-y-1/2"
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ function Footer() {
               </svg>
               Quick Links
             </h4>
-            <ul className="flex flex-col gap-6 mt-6">
+            <ul className="grid grid-cols-2 md:flex md:flex-col gap-x-4 md:gap-6 mt-6">
               <li className="py-2 border-b border-[#feeaec] cursor-pointer hover:text-accent">
                 <Link to="/">Home</Link>
               </li>

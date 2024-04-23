@@ -4,8 +4,8 @@ function OurTeam() {
       <h2 className="text-center text-3xl font-bold my-16">
         <span className="border-b-4 border-accent">Our Team</span>
       </h2>
-      <div className="mx-12 xl:mx-56 mb-12 flex flex-col gap-8">
-        <div className="bg-white rounded p-6 flex gap-6">
+      <div className="mx-4 md:mx-12 xl:!mx-56 mb-12 flex flex-col gap-8">
+        <div className="bg-white rounded p-6 flex flex-col md:flex-row gap-6">
           <img
             className="rounded-full h-40 w-40 mx-auto self-center"
             src="/team-1.jpeg"
@@ -20,7 +20,7 @@ function OurTeam() {
               Writer. I Love watching Anime , Reading Manga and Playing Games.
               And I&apos;m passionate about Front End Web Development
             </p>
-            <div className="flex items-center mt-4 gap-4">
+            <div className="flex flex-col xs:flex-row items-center mt-4 gap-4">
               <p className="font-semibold text-base ">Social Links - </p>
               <div className="flex gap-4">
                 <a href="https://twitter.com/MohanRaji212855">
@@ -69,7 +69,7 @@ function OurTeam() {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded p-6 flex gap-6">
+        <div className="bg-white rounded p-6 flex flex-col md:flex-row gap-6">
           <img
             className="rounded-full h-40 w-40 mx-auto self-center"
             src="/team-2.jpeg"
@@ -84,7 +84,7 @@ function OurTeam() {
               Writer. I Love watching Anime , Reading Manga and Playing Games.
               And I&apos;m passionate about Front End Web Development
             </p>
-            <div className="flex items-center mt-4 gap-4">
+            <div className="flex flex-col xs:flex-row items-center mt-4 gap-4">
               <p className="font-semibold text-base ">Social Links - </p>
               <div className="flex gap-4">
                 <a href="https://twitter.com/MohanRaji212855">

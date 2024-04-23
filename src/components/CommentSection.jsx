@@ -76,7 +76,7 @@ function CommentSection({ blogId }) {
     fetchComments();
   }, [blogId, updatedComments]);
   return (
-    <div>
+    <div className="">
       <div className="mt-12 flex flex-col gap-6">
         {currentComments.length ? (
           currentComments.map((comment, index) => (
@@ -125,7 +125,7 @@ function CommentSection({ blogId }) {
           Next
         </button>
       </div>
-      <div className="my-8">
+      <div className="px-4 md:px-0 my-8">
         <h4 className="font-bold text-lg mb-8">Leave a Reply!</h4>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <input

@@ -1,18 +1,19 @@
 function Hero() {
   return (
-    <div className="flex items-center justify-center gap-24 mt-32 mx-12 xl:mx-52">
-      <div className="flex flex-col gap-6">
-        <h1 className="text-[32px] xl:text-[40px] tracking-wide whitespace-nowrap">
+    <div className="flex flex-col-reverse xl:!flex-row items-center justify-center gap-24 mt-24 md:mt-32 mx-6 md:mx-12 xl:!mx-52">
+      <div className="flex flex-col gap-6 w-[250px] xs:!w-full">
+        <h1 className="text-[28px] md:text-[32px] xl:!text-[40px] tracking-wide md:whitespace-nowrap">
           Welcome to
-          <span className="text-accent font-medium"> AnimeBlogz</span>👋
+          <span className=" text-accent font-medium"> AnimeBlogz</span>
+          👋
         </h1>
-        <p className="text-lg leading-loose">
+        <p className="text-base xs:text-lg leading-loose">
           Here we talk about
           <b> Unpopular Opinions</b> about <b>Anime</b> ,<b> Manga</b> and even
           Gacha Games !. Check out the posts and let us know what you think!
         </p>
         <h4 className="text-lg font-medium">Let&apos;s Connect</h4>
-        <div className="social-buttons w-4/5 xl:w-3/5 ">
+        <div className="social-buttons w-full xs:w-4/5 xl:!w-3/5 ">
           <a
             href="https://github.com/Mohangit2810"
             target="_blank"

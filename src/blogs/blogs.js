@@ -1,6 +1,9 @@
 function renderMarkdownWithClasses(markdownContent) {
   const htmlContent = markdownContent
-    .replace(/## (.+)/g, '<h2 class="text-2xl font-bold my-8">$1</h2>')
+    .replace(
+      /## (.+)/g,
+      '<h2 class="text-xl md:text-2xl font-bold my-8">$1</h2>'
+    )
     .replace(/(\*\*)(.*?)\1/g, '<span class="font-semibold">$2</span>')
     .replace(
       /^- (.+)(?=\n-|\n\n|$)/gm,

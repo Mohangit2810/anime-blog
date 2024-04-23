@@ -15,8 +15,8 @@ function CategoryPage() {
     <div>
       <Header />
 
-      <div className="flex my-12 xl:my-28 items-center justify-center gap-6">
-        <div className="article-cat cursor-pointer flex items-center justify-center gap-8 border-r border-accent pr-12">
+      <div className="flex flex-col md:flex-row my-12 xl:!my-28 items-center justify-center gap-6">
+        <div className="article-cat cursor-pointer flex flex-col md:flex-row items-center justify-center gap-8 border-b md:border-b-0 md:border-r border-accent pb-6 md:pb-0 md:pr-12">
           <div className="gif-container relative before:bg-[#f266ee]">
             <img
               className="category-gif rounded-full w-16 h-16 object-cover"
@@ -25,7 +25,7 @@ function CategoryPage() {
             />
           </div>
           <div className="flex flex-col gap-3">
-            <b className="text-3xl">{category.name}</b>
+            <b className="text-2xl xs:text-3xl text-center">{category.name}</b>
             <p className="font-light">
               A Collection of
               <span className="font-semibold ml-1">
@@ -34,14 +34,14 @@ function CategoryPage() {
             </p>
           </div>
         </div>
-        <div className="w-2/5">
-          <p className="p-12 text-base tracking-wider leading-loose">
+        <div className="w-4/5 md:w-2/5">
+          <p className="p-2 xs:p-4 md:p-12 text-base tracking-wide md:tracking-wider leading-loose">
             {category.description}
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 mb-16 gap-6 xl:gap-12 mx-12 xl:mx-56">
+      <div className="grid grid-cols-1 md:grid-cols-3 mb-16 gap-6 xl:!gap-12 mx-2 xs:mx-6 md:mx-12 xl:!mx-56">
         {category.blogs.map((blog, index) => (
           <GridBlogCard key={index} blog={blog} />
         ))}

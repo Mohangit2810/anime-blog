@@ -9,10 +9,10 @@ function BlogCard({ blog }) {
   }
   return (
     <Link to={`/blog/${blog.id}`}>
-      <article className="flex gap-12 rounded-lg px-3 py-4 bg-white h-80">
-        <div className="shrink-0 relative overflow-hidden">
+      <article className="flex flex-col md:flex-row gap-6 xl:gap-12 rounded-lg px-3 py-4 bg-white h-full xl:h-80">
+        <div className="shrink-0 relative overflow-hidden my-auto">
           <img
-            className="blog-card-image w-72 rounded-lg"
+            className="blog-card-image w-full md:w-64 xl:!w-72 rounded-lg"
             src={blog.titleImage.potrait}
             alt={blog.title}
           />
@@ -24,9 +24,9 @@ function BlogCard({ blog }) {
             {blog.mainCategory}
           </span>
         </div>
-        <div className="flex flex-col gap-6 pr-8">
-          <ul className="flex items-center gap-6 text-sm mt-4">
-            <li className="flex items-center text-center">
+        <div className="flex flex-col gap-3 md:gap-6 pr-4 md:pr-8">
+          <ul className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-sm mt-0 md:mt-4">
+            <li className="hidden md:block flex items-center text-center">
               <svg
                 className="inline-block mr-2 w-5 h-5 fill-accent"
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,12 +70,14 @@ function BlogCard({ blog }) {
               <StarRating rating={blog.rating} total="none" />
             </li>
           </ul>
-          <h3 className="text-2xl font-bold hover:underline">{blog.title}</h3>
-          <p className="tracking-wider leading-relaxed">
+          <h3 className="mt-2 md:mt-0 text-xl md:text-2xl text-center md:text-start font-bold hover:underline">
+            {blog.title}
+          </h3>
+          <p className="text-sm md:text-base tracking-wide md:tracking-wider leading-normal xl:leading-relaxed text-center md:text-start">
             {blog.description} ...
           </p>
-          <div className="flex items-center justify-between mt-4">
-            <ul className="flex gap-4">
+          <div className="flex flex-col xs:flex-row gap-4 xs:gap-0 items-center justify-between mt-4">
+            <ul className="flex gap-4 text-sm md:text-base">
               {blog.tags.map((tag, index) => (
                 <li
                   key={index}

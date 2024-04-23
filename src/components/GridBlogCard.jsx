@@ -29,7 +29,7 @@ function GridBlogCard({ blog }) {
           <p className="text-center text-sm tracking-wider leading-relaxed">
             {blog.description.split(" ").slice(0, 15).join(" ")} ...
           </p>
-          <div className="flex items-center justify-around mt-4">
+          <div className="flex items-center justify-around mt-4 md:pb-4">
             <div className="flex gap-2 items-center">
               <img
                 className="w-6 h-6 rounded-full"

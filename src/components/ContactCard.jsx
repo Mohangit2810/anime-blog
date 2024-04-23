@@ -30,7 +30,7 @@ function ContactCard() {
     }
   };
   return (
-    <div className="mx-24 xl:mx-96 my-12 xl:my-24">
+    <div className="mx-4 xs:mx-8 md:mx-24 lg:mx-44 xl:!mx-80 my-12 xl:!my-24 lg:!w-[960px] lg:!h-[622px]">
       <form id="form" onSubmit={onSubmit}>
         <h1 className="text-4xl text-center font-bold mb-8">
           {" "}
@@ -76,17 +76,17 @@ function ContactCard() {
               className="form-control form-control-lg bg-white w-full h-32 pl-2 pt-1 rounded"
             ></textarea>
           </div>
-          <div className="flex gap-12 ">
+          <div className="flex gap-4 xs:gap-12 ">
             <button
               type="submit"
-              className="mt-4 custom-btn form-btn !bg-[#E162A0]"
+              className="mt-2 md:mt-4 custom-btn form-btn !bg-[#E162A0]"
             >
               Submit
             </button>
             <Link to="/">
               <button
                 type="button"
-                className="mt-4 custom-btn form-btn !bg-[#B89FB2]"
+                className="mt-2 md:mt-4 custom-btn form-btn !bg-[#B89FB2]"
               >
                 Go Back
               </button>

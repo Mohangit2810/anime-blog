@@ -124,15 +124,15 @@ function Blog() {
   return (
     <div>
       <Header />
-      <div className="mx-8 xl:mx-40 my-24 flex gap-8 xl:gap-12">
+      <div className="mx-0 xl:!mx-36 my-24 flex flex-col lg:flex-row gap-8 xl:!gap-12">
         <BlogSideBar
           blogData={blogData}
           ratingData={ratingData}
           mainHeadings={mainHeadings}
         />
         <div className="">
-          <article className="bg-white rounded w-full p-12">
-            <h1 className="text-4xl font-bold text-center mt-2">
+          <article className="bg-white rounded w-full p-6 md:p-12">
+            <h1 className="text-2xl md:text-4xl font-bold text-center mt-2">
               {blogData.title}
             </h1>
             <p className="text-center mt-6 text-xs font-medium">
@@ -198,14 +198,14 @@ function Blog() {
                   {tag} {index !== blogData.tags.length - 1 ? "," : " "}
                 </span>
               ))}
-            </p>{" "}
+            </p>
             <RateArticle
               setUpdateRating={setUpdateRating}
               userId={userId}
               rating={rating}
               blogId={blogData.id}
             />
-            <div className=" my-12 w-full gap-4 flex items-center justify-center">
+            <div className=" my-12 w-full gap-4 flex flex-col md:!flex-row items-center justify-center">
               <p className="font-semibold">Share Article :</p>
               <ul className="flex gap-6 ml-2">
                 <li className="twitter-icon relative cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1/4">
@@ -331,13 +331,13 @@ function Blog() {
               </button>
             </div>
           </article>
-          <div className="my-24 flex items-center justify-between">
+          <div className="my-24 flex flex-col md:!flex-row gap-4 md:gap-12 md:gap-0 items-center justify-between">
             <Link to={`/blog/${blogData.id - 1}`}>
               <div
                 className={
                   blogData.id === 1
                     ? "hidden"
-                    : "move-article relative overflow-hidden py-8 pl-16 pr-12 rounded-md bg-[#4EC1D8] text-white cursor-pointer"
+                    : "move-article relative overflow-hidden m-4 md:m-0 py-8 pl-16 pr-12 rounded-md bg-[#4EC1D8] text-white cursor-pointer"
                 }
               >
                 <p className="text-sm mb-2 text-start">Previous Article</p>
@@ -362,7 +362,7 @@ function Blog() {
                 className={
                   blogData.id === blogs.length
                     ? "hidden"
-                    : "move-article justify-self-end relative overflow-hidden py-8 pr-16 pl-12 rounded-md bg-[#F976D0] text-white cursor-pointer"
+                    : "move-article justify-self-end relative overflow-hidden m-4 md:m-0 py-8 pr-16 pl-12 rounded-md bg-[#F976D0] text-white cursor-pointer"
                 }
               >
                 <p className="text-sm mb-2 text-end">Next Article</p>
@@ -383,12 +383,12 @@ function Blog() {
               </div>
             </Link>
           </div>
-          <div className="p-12 bg-white rounded">
+          <div className="p-2 md:p-12 bg-white rounded">
             <div className="flex items-center justify-between">
-              <div className="article-cat flex items-center justify-center gap-8">
+              <div className="blog-cat article-cat flex items-center justify-center gap-8">
                 <div className="gif-container relative before:bg-[#f266ee] ">
                   <img
-                    className="category-gif rounded-full w-16 h-16 object-cover"
+                    className="category-gif rounded-full w-12 h-12 md:w-16 md:h-16 object-cover"
                     src={categoryData.image}
                     alt="SOL"
                   />
@@ -397,10 +397,13 @@ function Blog() {
                   <p className="font-light">
                     More in this <span className="font-semibold">Category</span>{" "}
                   </p>
-                  <b className="text-3xl">{blogData.mainCategory}</b>
+                  <b className="text-xl md:text-3xl">{blogData.mainCategory}</b>
                 </div>
               </div>
-              <Link to={`/category/${blogData.categoryId}`}>
+              <Link
+                className="hidden md:block"
+                to={`/category/${blogData.categoryId}`}
+              >
                 <button className="bg-accent text-white rounded px-6 py-2">
                   View All Articles
                 </button>
@@ -416,9 +419,17 @@ function Blog() {
                 </li>
               ))}
             </ul>
+            <Link
+              className=" md:hidden"
+              to={`/category/${blogData.categoryId}`}
+            >
+              <button className="mt-4 bg-accent text-white rounded px-6 py-2">
+                View All Articles
+              </button>
+            </Link>
           </div>
           <div className="my-12">
-            <h4 className="ml-6 font-bold text-xl relative">
+            <h4 className="ml-8 md:ml-6 font-bold text-xl relative">
               <svg
                 className="w-4 h-4 fill-accent inline absolute top-1/2 -left-6 transform -translate-y-1/4"
                 xmlns="http://www.w3.org/2000/svg"

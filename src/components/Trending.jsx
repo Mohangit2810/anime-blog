@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import categories from "../blogs/categories";
 
 function Trending() {
-  const trendingCategories = categories.slice(0, 5);
+  const trendingCategories = categories.slice(0, 6);
   return (
     <div className="my-24">
       <h2 className="text-center font-bold text-xl mb-6">
@@ -37,11 +37,15 @@ function Trending() {
         </svg>
         Trending Topics
       </h2>
-      <div className="flex items-center justify-around mx-12 xl:mx-64 py-4 px-12 bg-white rounded-full">
-        <ul className="flex items-center justify-center gap-12">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-0 items-center justify-around mx-0 md:mx-12 xl:!mx-64 py-4 px-6 xl:!px-12 bg-white rounded-none md:rounded-full">
+        <ul className=" grid grid-cols-3 mt-4 md:mt-0 gap-6 md:flex md:items-center md:justify-center md:gap-12">
           {trendingCategories.map((category, index) => (
-            <Link key={index} to={`/categories/${category.id}`}>
-              <li className="trending-icon flex flex-col items-center justify-center gap-3">
+            <Link
+              className="md:last:hidden"
+              key={index}
+              to={`/categories/${category.id}`}
+            >
+              <li className=" trending-icon flex flex-col items-center justify-center gap-3">
                 <div className="gif-container relative before:bg-[#f266ee]">
                   <img
                     className="category-gif rounded-full w-16 h-16 object-cover"
@@ -57,10 +61,10 @@ function Trending() {
             </Link>
           ))}
         </ul>
-        <div className="flex items-center justify-center gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <p className="font-semibold text-center">Or...</p>
           <Link to="/categories">
-            <button className="bg-accent text-white rounded px-6 py-2 hover:bg-darkAccent">
+            <button className="bg-accent text-white rounded px-6 py-2 hover:bg-darkAccent mb-4 md:mt-0">
               Explore All
             </button>
           </Link>

@@ -16,16 +16,20 @@ function Header() {
   return (
     <>
       <nav
-        className={`bg-white  h-20 flex items-center justify-around transition-all duration-300 ease shadow ${
+        className={`bg-white h-20 flex items-center justify-around transition-all duration-300 ease shadow ${
           sticky
             ? "rounded-none w-full fixed top-0 z-[100]"
-            : "rounded-none xl:rounded-full w-full xl:w-4/5 xl:p-0 mx-auto mt-0 xl:mt-8"
+            : "rounded-none lg:rounded-full w-full lg:w-4/5 lg:p-0 mx-auto mt-0 lg:mt-8"
         }`}
       >
         <Link to="/">
-          <img className="w-40" src="/logo-zento-personal-1.png" alt="logo" />
+          <img
+            className="w-24 md:w-32 lg:w-40"
+            src="/logo-zento-personal-1.png"
+            alt="logo"
+          />
         </Link>
-        <ul className="hidden xl:flex  items-center gap-8">
+        <ul className="hidden lg:flex  items-center gap-8">
           <li className="font-medium">
             <NavLink to="/"> Home</NavLink>
           </li>
@@ -44,17 +48,17 @@ function Header() {
         </ul>
 
         <a
-          className="order-first xl:order-last cursor-pointer"
+          className="order-first lg:order-last cursor-pointer"
           href="https://youtube.com/@DivertidoAnimeClips-ho6rd?si=PmAiKAtwq7P2gPZJ"
           target="_blank"
         >
           <svg
-            className="h-16 yt-icon"
+            className="h-12 md:h-16 yt-icon"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width="100"
-            height="100"
+            width="50"
+            height="50"
             viewBox="0 0 48 48"
           >
             <path
@@ -65,11 +69,11 @@ function Header() {
           </svg>
         </a>
         <button
-          className=" xl:hidden cursor-pointer"
+          className=" lg:hidden cursor-pointer"
           onClick={() => setIsSideBarOpen(!isSideBarOpen)}
         >
           <svg
-            className="w-8 h-8"
+            className="w-6 h-6 md:w-8 md:h-8"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
