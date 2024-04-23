@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+
 import StarRating from "../components/StarRating";
 
 function BlogSideBar({ blogData, ratingData, mainHeadings }) {
+  console.log(blogData, ratingData, mainHeadings);
   function scrollToHeading(event, index) {
     event.preventDefault();
     console.log(index);

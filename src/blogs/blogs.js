@@ -23,36 +23,27 @@ function renderMarkdownWithClasses(markdownContent) {
   return htmlContent;
 }
 
-async function extractHeadingsFromMarkdown(filePath) {
-  try {
-    // Fetch the Markdown file
-    const response = await fetch(filePath);
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch Markdown file");
-    }
-
-    // Read the content of the Markdown file
-    const markdownContent = await response.text();
-
-    // Regular expression to match headings (lines starting with ##)
-    const headingRegex = /^##\s(.+)/gm;
-
-    // Array to store the extracted headings
-    const headings = [];
-
-    // Match all headings using the regular expression
-    let match;
-    while ((match = headingRegex.exec(markdownContent)) !== null) {
-      // Extract the heading text and add it to the array
-      headings.push(match[1]);
-    }
-
-    return headings;
-  } catch (error) {
-    console.error("Error fetching or processing Markdown file:", error);
-    return null;
-  }
+function extractHeadingsFromMarkdown(filePath) {
+  return fetch(filePath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch Markdown file");
+      }
+      return response.text();
+    })
+    .then((markdownContent) => {
+      const headingRegex = /^##\s(.+)/gm;
+      const headings = [];
+      let match;
+      while ((match = headingRegex.exec(markdownContent)) !== null) {
+        headings.push(match[1]);
+      }
+      return headings;
+    })
+    .catch((error) => {
+      console.error("Error fetching or processing Markdown file:", error);
+      return null;
+    });
 }
 
 async function renderMarkdownFile(filePath) {
@@ -76,6 +67,11 @@ async function renderMarkdownFile(filePath) {
   }
 }
 
+async function getContent(blogId) {
+  const content = await renderMarkdownFile(`/src/blogs/blog${blogId}.md`);
+  return content;
+}
+
 const blogs = [
   {
     id: 1,
@@ -91,7 +87,7 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog1.md"),
+    content: getContent(1),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: ' "Graduation isnt the end" - Hirasawa Yui',
   },
@@ -109,8 +105,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog2.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog2.md"),
+    content: getContent(2),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -127,8 +123,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog3.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog3.md"),
+    content: getContent(3),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -145,8 +141,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog4.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog4.md"),
+    content: getContent(4),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -163,8 +159,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog5.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog5.md"),
+    content: getContent(5),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -181,8 +177,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog6.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog6.md"),
+    content: getContent(6),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -199,8 +195,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog7.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog7.md"),
+    content: getContent(7),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -217,8 +213,8 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog8.md"),
-    headings: await extractHeadingsFromMarkdown("/src/blogs/blog8.md"),
+    content: getContent(8),
+    headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
   {
@@ -235,7 +231,7 @@ const blogs = [
     rating: 4,
     description:
       "The Anime which made the Cute Girls Doing Cute Things Genre popular,The K-On should be in your watchlist not only because the anime is cute ",
-    content: await renderMarkdownFile("/src/blogs/blog1.md"),
+    content: getContent(9),
     headings: await extractHeadingsFromMarkdown("/src/blogs/blog1.md"),
     quote: "Graduation isnt the end - Hirasawa Yui",
   },
