@@ -54,6 +54,20 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  iframe {
+    width: 300px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  iframe {
+    width: 275px;
+    height: 220px;
+  }
+}
+
 /* Add more @font-face rules for other font weights if needed */
 
 body {

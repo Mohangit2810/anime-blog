@@ -7,7 +7,7 @@ function MiniCard({ blog }) {
       <article className="flex gap-4 items-center rounded-lg h-28">
         <div className="shrink-0 overflow-hidden">
           <img
-            className="blog-card-image w-24 rounded-lg"
+            className="blog-card-image bg-cover w-24 h-24 rounded-lg"
             src={blog.titleImage.potrait}
             alt={blog.title}
           />

@@ -1,6 +1,6 @@
 function OurTeam() {
   return (
-    <div>
+    <div id="ourTeam">
       <h2 className="text-center text-3xl font-bold my-16">
         <span className="border-b-4 border-accent">Our Team</span>
       </h2>

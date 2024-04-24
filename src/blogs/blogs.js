@@ -71,7 +71,10 @@ const blogs = [
     id: 1,
     author: "MohanRaji",
     title: "Why you should watch K-On ?",
-    titleImage: { landscape: "/big-blog.jpg", potrait: "/hero.jpg" },
+    titleImage: {
+      landscape: "/blogImages/konmain.jpg",
+      potrait: "/blogImages/konmainPotrait.jpg",
+    },
     published: "28, August 2021",
     updated: "29, August 2021",
     minsRead: "5",
@@ -89,7 +92,10 @@ const blogs = [
     id: 2,
     author: "MohanRaji",
     title: "Why you should watch K-On ?",
-    titleImage: { landscape: "/big-blog.jpg", potrait: "/hero.jpg" },
+    titleImage: {
+      landscape: "/blogImages/konmain.jpg",
+      potrait: "/blogImages/konmainPotrait.jpg",
+    },
     published: "28, August 2021",
     updated: "29, August 2021",
     minsRead: "5",
