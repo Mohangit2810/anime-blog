@@ -73,7 +73,7 @@ function BigBlogCard({ blog }) {
         {blog.description}
         ...
       </p>
-      <div className="flex flex-col xs:flex-row gap-4 xs:gap-8 md:gap-24 my-2">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:!gap-24 my-2">
         <ul className="flex gap-4 text-sm md:text-base">
           {blog.tags.map((tag, index) => (
             <li
@@ -85,7 +85,7 @@ function BigBlogCard({ blog }) {
           ))}
         </ul>
         <Link to={`/about/#ourTeam`}>
-          <div className="flex gap-2 items-center self-center xs:self-auto">
+          <div className="flex gap-2 items-center justify-center">
             <img
               className="w-6 h-6 rounded-full"
               src={

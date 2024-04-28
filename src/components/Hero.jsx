@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="flex flex-col-reverse xl:!flex-row items-center justify-center gap-24 mt-24 md:mt-32 mx-6 md:mx-12 xl:!mx-52">
+    <div className="flex flex-col-reverse lg:!flex-row items-center justify-center gap-12 md:gap-24 mt-12 sm:mt-24 md:!mt-32 mx-6 md:mx-12 xl:!mx-52">
       <div className="flex flex-col gap-6 w-[250px] xs:!w-full">
         <h1 className="text-[28px] md:text-[32px] xl:!text-[40px] tracking-wide md:whitespace-nowrap">
           Welcome to
@@ -13,7 +13,7 @@ function Hero() {
           Gacha Games !. Check out the posts and let us know what you think!
         </p>
         <h4 className="text-lg font-medium">Let&apos;s Connect</h4>
-        <div className="social-buttons w-full xs:w-4/5 xl:!w-3/5 ">
+        <div className="social-buttons w-full sm:w-min xl:!w-3/5 ">
           <a
             href="https://github.com/Mohangit2810"
             target="_blank"
@@ -84,7 +84,11 @@ function Hero() {
         </div>
       </div>
       <div className="hero-img-container">
-        <img className="hero-img" src="hero.jpg" alt="Hero Image" />
+        <img
+          className="hero-img w-3/5 md:w-1/2 lg:!w-auto mx-auto"
+          src="mai.jpg"
+          alt="Hero Image"
+        />
       </div>
     </div>
   );

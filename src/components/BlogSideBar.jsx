@@ -47,7 +47,7 @@ function BlogSideBar({ blogData, ratingData }) {
           </svg>
           Article Info
         </h4>
-        <ul className=" bg-white mt-6 text-sm p-4 lg:p-8 pr-2 lg:pr-16 rounded flex flex-col items-start gap-4 w-64 lg:!w-max">
+        <ul className=" bg-white ml-3 mt-6 text-sm p-4 pl-2 lg:p-8 lg:pr-6 xl:!pr-16 rounded flex flex-col items-start gap-4 w-64 lg:!w-max">
           <li className="flex items-center text-center">
             <svg
               className="inline-block mr-2 w-5 h-5 fill-accent"

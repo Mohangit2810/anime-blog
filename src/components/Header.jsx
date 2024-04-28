@@ -23,11 +23,7 @@ function Header() {
         }`}
       >
         <Link to="/">
-          <img
-            className="w-24 md:w-32 lg:w-40"
-            src="/logo-zento-personal-1.png"
-            alt="logo"
-          />
+          <img className="w-24 md:w-32 lg:w-40" src="/logo.png" alt="logo" />
         </Link>
         <ul className="hidden lg:flex  items-center gap-8">
           <li className="font-medium">

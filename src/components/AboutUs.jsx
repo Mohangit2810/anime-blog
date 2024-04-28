@@ -6,7 +6,7 @@ function AboutUs() {
       </h2>
       <div className="px-4 md:px-12 py-8 bg-white mx-0 md:mx-12 xl:!mx-56 mb-12 md:mb-24 rounded">
         <img className=" rounded-lg mb-12 mt-4" src="/about.jpg" alt="about" />
-        <p className="indent-24 text-lg tracking-wider leading-relaxed text-justify">
+        <p className="indent-24 text-base lg:text-lg tracking-wider leading-relaxed text-justify">
           This AnimeBlogz website is made for fun and not to be taken serious.
           We just practicing our React JS and Tailwind Skills. Lorem ipsum dolor
           sit, amet consectetur adipisicing elit. Reiciendis placeat aliquam

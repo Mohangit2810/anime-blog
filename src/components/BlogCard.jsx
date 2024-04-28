@@ -73,7 +73,7 @@ function BlogCard({ blog }) {
         <p className="text-sm md:text-base tracking-wide md:tracking-wider leading-normal xl:leading-relaxed text-center md:text-start">
           {blog.description} ...
         </p>
-        <div className="flex flex-col xs:flex-row gap-4 xs:gap-0 items-center justify-between mt-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 items-center justify-between mt-4">
           <ul className="flex gap-4 text-sm md:text-base">
             {blog.tags.map((tag, index) => (
               <li
