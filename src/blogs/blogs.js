@@ -72,8 +72,8 @@ const blogs = [
     author: "MohanRaji",
     title: "Why you should watch K-On ?",
     titleImage: {
-      landscape: "/blogImages/konmain.jpg",
-      potrait: "/blogImages/konmainPotrait.jpg",
+      landscape: "https://images3.alphacoders.com/127/127889.jpg",
+      potrait: "https://s1.zerochan.net/K-ON%21.600.2013134.jpg",
     },
     published: "28, August 2021",
     updated: "29, August 2021",
