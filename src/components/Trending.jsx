@@ -37,8 +37,8 @@ function Trending() {
         </svg>
         Trending Topics
       </h2>
-      <div className="flex flex-col md:flex-row gap-8 md:gap-0 items-center justify-around mx-0 md:mx-12 xl:!mx-64 py-4 px-6 xl:!px-12 bg-white rounded-none md:rounded-full">
-        <ul className=" grid grid-cols-3 mt-4 md:mt-0 gap-6 md:flex md:items-center md:justify-center md:gap-12">
+      <div className="flex flex-col md:flex-row gap-8 sm:gap-0 items-center justify-around mx-0 lg:mx-12 xl:!mx-64 py-4 px-6 xl:!px-12 bg-white rounded-none md:rounded-full">
+        <ul className=" grid grid-cols-3 mt-4 md:mt-0 gap-6 md:flex md:items-center md:justify-center lg:gap-12">
           {trendingCategories.map((category, index) => (
             <Link
               className="md:last:hidden"

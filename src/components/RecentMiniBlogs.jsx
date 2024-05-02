@@ -2,7 +2,7 @@ import MiniCard from "./MiniCard";
 import blogs from "../blogs/blogs.js";
 
 function RecentMiniBlogs() {
-  const recentBlogs = blogs.slice(0, 3);
+  const recentBlogs = blogs.slice(6, 9);
   return (
     <div>
       <h3 className="text-center font-bold text-xl mb-6">

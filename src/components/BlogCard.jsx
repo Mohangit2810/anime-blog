@@ -4,11 +4,11 @@ import StarRating from "./StarRating";
 
 function BlogCard({ blog }) {
   return (
-    <article className="flex flex-col md:flex-row gap-6 xl:gap-12 rounded-lg px-3 py-4 bg-white h-full xl:h-80">
+    <article className="flex flex-col md:flex-row gap-6 xl:gap-12 rounded-lg px-3 py-4 bg-white h-full xl:h-96">
       <div className="shrink-0 relative overflow-hidden my-auto">
         <Link to={`/blog/${blog.id}`}>
           <img
-            className="blog-card-image w-full md:w-64 xl:!w-72 xl:!h-72 rounded-lg"
+            className="blog-card-image w-full md:w-64 xl:!w-72 xl:!h-[22rem] rounded-lg bg-cover bg-center"
             src={blog.titleImage.potrait}
             alt={blog.title}
           />

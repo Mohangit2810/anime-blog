@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 function MiniCard({ blog }) {
   return (
     <Link to={`/blog/${blog.id}`}>
-      <article className="flex gap-4 items-center rounded-lg h-28">
+      <article className="flex gap-4 items-center rounded-lg h-32">
         <div className="shrink-0 overflow-hidden">
           <img
-            className="blog-card-image bg-cover w-24 h-24 rounded-lg"
+            className="blog-card-image bg-cover w-24 h-28 rounded-lg"
             src={blog.titleImage.potrait}
             alt={blog.title}
           />

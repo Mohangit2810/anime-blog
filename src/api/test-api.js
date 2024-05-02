@@ -1,6 +1,6 @@
 async function fetchData() {
   const response = await fetch(
-    "http://localhost:8080/api.myanimelist.net/v2/users/@me",
+    "https://api.myanimelist.net/v2/anime/34798?fields=id,title,main_picture,pictures",
     {
       headers: {
         Authorization:

@@ -1,3 +1,5 @@
+<p>There are several Reasons to watch this beautiful anime K-On ! and I listed some of my best personal reasons to watch this show</p>
+
 ## Shonen 1
 
 <p>Anime is a popular form of entertainment originating from Japan. It covers various genres and appeals to many different audiences. Its unique art style and storytelling have gained international acclaim.</p>

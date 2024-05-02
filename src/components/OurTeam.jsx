@@ -15,7 +15,7 @@ function OurTeam() {
             <h3 className="text-2xl font-semibold my-4">
               MohanRaji - Developer, Writer
             </h3>
-            <p className="indent-10 text-base tracking-wider leading-relaxed">
+            <p className="indent-10 text-justify text-base tracking-wider leading-relaxed">
               Hey There! Myself MohanRaji, The Sole Developer and sometimes
               Writer. I Love watching Anime , Reading Manga and Playing Games.
               And I&apos;m passionate about Front End Web Development
@@ -79,10 +79,11 @@ function OurTeam() {
             <h3 className="text-2xl font-semibold my-4">
               Rahul Raj - Writer, Content Reviewer
             </h3>
-            <p className="indent-10 text-base tracking-wider leading-relaxed">
-              Hey There! Myself Rahul Raj, The Sole Developer and sometimes
-              Writer. I Love watching Anime , Reading Manga and Playing Games.
-              And I&apos;m passionate about Front End Web Development
+            <p className="indent-10 text-justify text-base tracking-wider leading-relaxed">
+              Hello There ! I&apos;m Rahul Raj, The Content Reviewer , writer
+              and a Profesional Gacha Gamer. I love watching Anime and Reading
+              Manga. I&apos;m passionate about writing and reviewing content.
+              And a Java Developer.
             </p>
             <div className="flex flex-col xs:flex-row items-center mt-4 gap-4">
               <p className="font-semibold text-base ">Social Links - </p>

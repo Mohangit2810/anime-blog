@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function FeaturedBlogs() {
   const featuredBlogs = blogs.filter((blog) => blog.rating >= 3).slice(0, 5);
   return (
-    <div className="mx-2 md:mx-12 xl:!mx-80 mb-24">
+    <div className="mx-0 md:mx-8 xl:!mx-80 mb-24">
       <h2 className="text-center font-bold text-xl mb-6">
         <svg
           className="inline-block mr-2 w-6 h-6 fill-accent"

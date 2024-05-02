@@ -124,7 +124,7 @@ function Footer() {
         </div>
 
         <div className="self-start flex flex-col gap-8">
-          <img className="w-48" src="/logo-zento-personal-1.png" alt="logo" />
+          <img className="w-48" src="/logo.png" alt="logo" />
           <p className="leading-relaxed">
             Join youself in this <b>Community</b> of outrageous takes <br />
             about

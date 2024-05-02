@@ -39,7 +39,7 @@ function App() {
       <a
         href="#top"
         id="back-to-top"
-        className={`fixed bottom-4 right-4 bg-accent cursor-pointer hover:bg-darkAccent p-3 rounded-full transition-all duration-300 ease-in-out ${
+        className={`z-[999] fixed bottom-4 right-4 bg-accent cursor-pointer hover:bg-darkAccent p-2 sm:p-3 rounded-full transition-all duration-300 ease-in-out ${
           backToTop ? "block" : "hidden"
         }`}
       >
