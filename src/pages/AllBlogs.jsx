@@ -3,8 +3,12 @@ import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 import blogs from "../blogs/blogs";
 import GridBlogCard from "../components/GridBlogCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function AllBlogs() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
 

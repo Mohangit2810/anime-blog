@@ -31,6 +31,8 @@ function Blog() {
   const mainHeadings = blogData.headings;
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     // Check if user ID is already stored in local storage
     const storedUserId = localStorage.getItem("userId");
 
@@ -341,7 +343,7 @@ function Blog() {
                 }
               >
                 <p className="text-sm mb-2 text-start">Previous Article</p>
-                <p className="text-left">Why you should Watch K-On?</p>
+                <p className="text-left">{blogs[blogData.id - 2]?.title}</p>
                 <span className="arrow-icon-left py-2 pl-[50px] pr-2 bg-white rounded-full absolute -left-12 top-[30%] transition-all duration-300 ease-in-out">
                   <svg
                     className="w-8 h-8 fill-black"
@@ -366,7 +368,7 @@ function Blog() {
                 }
               >
                 <p className="text-sm mb-2 text-end">Next Article</p>
-                <p className="text-right">Why you should Watch K-On?</p>
+                <p className="text-right">{blogs[blogData.id]?.title}</p>
                 <span className="arrow-icon-right py-2 pr-[50px] pl-2 bg-white rounded-full absolute -right-12 top-[30%] transition-all duration-300 ease-in-out">
                   <svg
                     className="w-8 h-8 fill-black"

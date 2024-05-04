@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
@@ -6,6 +7,9 @@ import categories from "../blogs/categories";
 import GridBlogCard from "../components/GridBlogCard";
 
 function CategoryPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   let { categoryId } = useParams();
   const category = categories.find(
     (category) => category.id === parseInt(categoryId)

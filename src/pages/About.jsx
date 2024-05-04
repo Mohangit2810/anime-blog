@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "../components/Header";
 import AboutUs from "../components/AboutUs";
 import OurTeam from "../components/OurTeam";
@@ -6,6 +7,9 @@ import FeaturedMiniBlogs from "../components/FeaturedMiniBlogs";
 import RecentMiniBlogs from "../components/RecentMiniBlogs";
 import Subscribe from "../components/Subscribe";
 function About() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div>
       <Header />
