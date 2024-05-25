@@ -1,5 +1,9 @@
 # Anime Blogz
 
+![projectfive](https://github.com/Mohangit2810/anime-blog/assets/136815669/9dfa85a8-3248-4d6e-8daa-8c88808f57d1)
+
+Check out the Website here - [Link](https://sakurajima.netlify.app/)
+
 Welcome to Anime Blogz, your ultimate destination for anime, manga, and various other categories of blogs. This project is built using React.js, Tailwind CSS, and Firebase, offering a seamless and engaging platform for anime enthusiasts.
 
 ## Table of Contents
