@@ -53,7 +53,7 @@ Developing Anime Blogz presented several challenges:
 
 If you have any questions or suggestions, feel free to reach out:
 
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/mohan-raji-95bb8a223/)
+- **LinkedIn:** [My LinkedIn Profile](https://www.linkedin.com/in/mohan-raji-95bb8a223/)
 - **Email:** mohanraji2810@example.com
 
 Thank you for visiting Anime Blogz! Enjoy exploring the world of anime and manga through our blogs.
