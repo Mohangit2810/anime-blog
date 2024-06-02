@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Categories from "./pages/Categories";
-import CategoryPage from "./pages/CategoryPage";
-import Blog from "./pages/Blog";
-import AllBlogs from "./pages/AllBlogs";
+import Loading from "./components/Loading";
+
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Categories = lazy(() => import("./pages/Categories"));
+const CategoryPage = lazy(() => import("./pages/CategoryPage"));
+const Blog = lazy(() => import("./pages/Blog"));
+const AllBlogs = lazy(() => import("./pages/AllBlogs"));
 
 function App() {
   const [backToTop, setBackToTop] = useState(false);
@@ -21,19 +23,21 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="categories">
-            <Route index element={<Categories />} />
-            <Route path=":categoryId" element={<CategoryPage />} />
-          </Route>
-          <Route path="contact" element={<Contact />} />
-          <Route path="blog">
-            <Route index element={<AllBlogs />} />
-            <Route path=":blogId" element={<Blog />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="categories">
+              <Route index element={<Categories />} />
+              <Route path=":categoryId" element={<CategoryPage />} />
+            </Route>
+            <Route path="contact" element={<Contact />} />
+            <Route path="blog">
+              <Route index element={<AllBlogs />} />
+              <Route path=":blogId" element={<Blog />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
 
       <a

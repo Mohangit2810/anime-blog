@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Suspense } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Trending from "../components/Trending";
@@ -12,12 +13,20 @@ function Home() {
   }, []);
   return (
     <div>
-      <Header />
-      <Hero />
-      <Trending />
-      <FeaturedBlogs />
-      <Subscribe />
-      <Footer />
+      <Suspense
+        fallback={
+          <div>
+            <img src="/mai.jpg" alt="loading please wait" />
+          </div>
+        }
+      >
+        <Header />
+        <Hero />
+        <Trending />
+        <FeaturedBlogs />
+        <Subscribe />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
