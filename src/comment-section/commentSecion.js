@@ -103,6 +103,7 @@ async function getRating(userId, blogId) {
     const rating = allRatings.filter(
       (rating) => rating.blogId === parseInt(blogId) && rating.userId === userId
     );
+    // console.log(rating);
 
     return rating[0]?.rating || 0; // Return the rating if it exists, or 0 if it doesn't
   } catch (error) {

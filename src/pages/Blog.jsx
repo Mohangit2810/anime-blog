@@ -404,7 +404,7 @@ function Blog() {
               </div>
               <Link
                 className="hidden md:block"
-                to={`/category/${blogData.categoryId}`}
+                to={`/categories/${blogData.categoryId}`}
               >
                 <button className="bg-accent text-white rounded px-6 py-2">
                   View All Articles
@@ -423,7 +423,7 @@ function Blog() {
             </ul>
             <Link
               className=" md:hidden"
-              to={`/category/${blogData.categoryId}`}
+              to={`/categories/${blogData.categoryId}`}
             >
               <button className="mt-4 bg-accent text-white rounded px-6 py-2">
                 View All Articles
